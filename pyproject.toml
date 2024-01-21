@@ -8,9 +8,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+ipywidgets = "^8.1.1"
+jupyterlab = "^4.0.9"
 
 [tool.poetry.group.dev.dependencies]
-dvc = {extras = ["gdrive", "s3"], version = "^3.37.0"}
+dvc = { extras = ["gdrive", "s3"], version = "^3.37.0" }
 black = "^23.12.1"
 isort = "^5.13.2"
 flake8 = "^6.1.0"
@@ -19,7 +21,7 @@ flake8-pyproject = "^1.2.3"
 autoflake = "^2.2.1"
 pyupgrade = "^3.15.0"
 nbqa = "^1.7.1"
-bandit = {extras = ["toml"], version = "^1.7.6"}
+bandit = { extras = ["toml"], version = "^1.7.6" }
 pre-commit = "^3.6.0"
 
 [tool.poetry.group.vscode]
@@ -28,19 +30,21 @@ optional = true
 [tool.poetry.group.vscode.dependencies]
 mypy = "^1.8.0"
 pylint = "^3.0.3"
-ruff = "^0.1.9"
+ruff = "^0.1.11"
 pandas-stubs = "^2.1.4.231227"
 types-pillow = "^10.1.0.20240106"
 types-beautifulsoup4 = "^4.12.0.20240106"
 types-tqdm = "^4.66.0.20240106"
 
 [tool.black]
-line-length = 88
+line-length = 100
 target-version = ["py39"]
+# skip-string-normalization = true
+# skip-magic-trailing-comma = true
 
 [tool.isort]
 profile = "black"
-line_length = 88
+line_length = 100
 float_to_top = true
 
 [tool.autoflake]
@@ -53,13 +57,14 @@ expand-star-imports = true
 in-place = true
 
 [tool.flake8]
-max-line-length = 88
+max-line-length = 100
 extend-ignore = "E203"
 
 [tool.ruff]
 select = ["ALL"]
 target-version = "py39"
-line-length = 88
+line-length = 100
+# ignore = ["D", "ANN101", "RUF012", "ANN102", "COM812", "FA100"]
 
 [tool.mypy]
 python_version = "3.9"
@@ -67,6 +72,15 @@ strict = true
 show_error_context = true
 pretty = true
 # ignore_missing_imports = true
+
+[tool.pylint]
+py-version = "3.9"
+max-line-length = 100
+disable = ["C0116", "C0114", "C0115", "W1514"]
+
+# [tool.bandit]
+# exclude_dirs = []
+# skips = ["B403", "B301"] # pickle files
 
 [build-system]
 requires = ["poetry-core"]
