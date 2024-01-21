@@ -9,14 +9,14 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 ipywidgets = "^8.1.1"
-jupyterlab = "^4.0.9"
+jupyterlab = "^4.0.11"
 
 [tool.poetry.group.dev.dependencies]
-dvc = { extras = ["gdrive", "s3"], version = "^3.37.0" }
+dvc = { extras = ["gdrive", "s3"], version = "^3.40.1" }
 black = "^23.12.1"
 isort = "^5.13.2"
-flake8 = "^6.1.0"
-flake8-bugbear = "^23.12.2"
+flake8 = "^7.0.0"
+flake8-bugbear = "^24.1.17"
 flake8-pyproject = "^1.2.3"
 autoflake = "^2.2.1"
 pyupgrade = "^3.15.0"
