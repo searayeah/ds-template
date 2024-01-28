@@ -12,8 +12,8 @@ ipywidgets = "^8.1.1"
 jupyterlab = "^4.0.11"
 
 [tool.poetry.group.dev.dependencies]
-dvc = { extras = ["gdrive", "s3"], version = "^3.40.1" }
-black = "^23.12.1"
+dvc = { extras = ["gdrive", "s3"], version = "^3.42.0" }
+black = "^24.1.1"
 isort = "^5.13.2"
 flake8 = "^7.0.0"
 flake8-bugbear = "^24.1.17"
@@ -21,7 +21,7 @@ flake8-pyproject = "^1.2.3"
 autoflake = "^2.2.1"
 pyupgrade = "^3.15.0"
 nbqa = "^1.7.1"
-bandit = { extras = ["toml"], version = "^1.7.6" }
+bandit = { extras = ["toml"], version = "^1.7.7" }
 pre-commit = "^3.6.0"
 
 [tool.poetry.group.vscode]
@@ -32,19 +32,19 @@ mypy = "^1.8.0"
 pylint = "^3.0.3"
 ruff = "^0.1.11"
 pandas-stubs = "^2.1.4.231227"
-types-pillow = "^10.1.0.20240106"
+types-pillow = "^10.2.0.20240125"
 types-beautifulsoup4 = "^4.12.0.20240106"
 types-tqdm = "^4.66.0.20240106"
 
 [tool.black]
-line-length = 100
+line-length = 120
 target-version = ["py39"]
 # skip-string-normalization = true
 # skip-magic-trailing-comma = true
 
 [tool.isort]
 profile = "black"
-line_length = 100
+line_length = 120
 float_to_top = true
 
 [tool.autoflake]
@@ -57,26 +57,37 @@ expand-star-imports = true
 in-place = true
 
 [tool.flake8]
-max-line-length = 100
-extend-ignore = "E203"
+max-line-length = 120
+extend-ignore = "E203" # Whitespace before ':' for black compatability
 
 [tool.ruff]
-select = ["ALL"]
 target-version = "py39"
-line-length = 100
-# ignore = ["D", "ANN101", "RUF012", "ANN102", "COM812", "FA100"]
+select = ["ALL"]
+line-length = 120
+ignore = [
+    "D",      # documentation
+    "ANN101", # annotationg self in class methods
+    "RUF012", # mutable class attributes type checking
+    "ANN102", # annotationg cls in class methods
+    "COM812", # missing-trailing-comma
+    "FA100",  # future-annotations
+]
 
 [tool.mypy]
 python_version = "3.9"
 strict = true
 show_error_context = true
 pretty = true
-# ignore_missing_imports = true
+# ignore_missing_imports = true # ignore packages without type-checking
 
 [tool.pylint]
 py-version = "3.9"
-max-line-length = 100
-disable = ["C0116", "C0114", "C0115", "W1514"]
+max-line-length = 120
+disable = [
+    "C0116", # documentation
+    "C0114", # documentation
+    "C0115", # documentation
+]
 
 # [tool.bandit]
 # exclude_dirs = []
