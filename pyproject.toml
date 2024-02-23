@@ -8,44 +8,30 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-ipywidgets = "^8.1.1"
-jupyterlab = "^4.0.11"
+ipywidgets = "^8.1.2"
+jupyterlab = "^4.1.2"
 
 [tool.poetry.group.dev.dependencies]
-dvc = { extras = ["gdrive", "s3"], version = "^3.42.0" }
-black = "^24.1.1"
+dvc = { extras = ["s3"], version = "^3.47.0" }     # dvc with gdrive may be slow
+pre-commit = "^3.6.2"
+pyupgrade = "^3.15.1"
+autoflake = "^2.3.0"
 isort = "^5.13.2"
+black = "^24.2.0"
 flake8 = "^7.0.0"
-flake8-bugbear = "^24.1.17"
+flake8-bugbear = "^24.2.6"
 flake8-pyproject = "^1.2.3"
-autoflake = "^2.2.1"
-pyupgrade = "^3.15.0"
 nbqa = "^1.7.1"
 bandit = { extras = ["toml"], version = "^1.7.7" }
-pre-commit = "^3.6.0"
-
-[tool.poetry.group.vscode]
-optional = true
-
-[tool.poetry.group.vscode.dependencies]
+# vscode highlighting
 mypy = "^1.8.0"
 pylint = "^3.0.3"
-ruff = "^0.1.11"
-pandas-stubs = "^2.1.4.231227"
-types-pillow = "^10.2.0.20240125"
+ruff = "^0.2.2"
+# stubs for mypy type checking
+pandas-stubs = "^2.2.0.240218"
+types-pillow = "^10.2.0.20240213"
 types-beautifulsoup4 = "^4.12.0.20240106"
 types-tqdm = "^4.66.0.20240106"
-
-[tool.black]
-line-length = 120
-target-version = ["py39"]
-# skip-string-normalization = true
-# skip-magic-trailing-comma = true
-
-[tool.isort]
-profile = "black"
-line_length = 120
-float_to_top = true
 
 [tool.autoflake]
 remove-all-unused-imports = true
@@ -56,19 +42,33 @@ recursive = true
 expand-star-imports = true
 in-place = true
 
+[tool.isort]
+profile = "black"
+line_length = 120
+float_to_top = true
+
+[tool.black]
+line-length = 120
+target-version = ["py39"]
+# skip-string-normalization = true
+# skip-magic-trailing-comma = true
+
 [tool.flake8]
 max-line-length = 120
 extend-ignore = "E203" # Whitespace before ':' for black compatability
 
 [tool.ruff]
 target-version = "py39"
-select = ["ALL"]
 line-length = 120
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["ALL"]
 ignore = [
     "D",      # documentation
-    "ANN101", # annotationg self in class methods
+    "ANN101", # annotationg self in class methods, will be deprecated
     "RUF012", # mutable class attributes type checking
-    "ANN102", # annotationg cls in class methods
+    "ANN102", # annotationg cls in class methods, will be deprecated
     "COM812", # missing-trailing-comma
     "FA100",  # future-annotations
 ]
