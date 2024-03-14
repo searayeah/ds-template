@@ -27,7 +27,7 @@ nbqa = "^1.7.1"
 bandit = { extras = ["toml"], version = "^1.7.7" }
 # vscode highlighting
 mypy = "^1.8.0"
-pylint = "^3.0.3"
+pylint = "^3.1.0"
 ruff = "^0.2.2"
 # stubs for mypy type checking
 pandas-stubs = "^2.2.0.240218"
