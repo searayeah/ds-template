@@ -2833,13 +2833,13 @@ test = ["pep440", "pre-commit", "pytest", "testpath"]
 
 [[package]]
 name = "nbqa"
-version = "1.7.1"
+version = "1.8.4"
 description = "Run any standard Python code quality tool on a Jupyter Notebook"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "nbqa-1.7.1-py3-none-any.whl", hash = "sha256:77cdff622bfcf527bf260004449984edfb3624f6e065ac6bb35d64cddcdad483"},
-    {file = "nbqa-1.7.1.tar.gz", hash = "sha256:44f5b5000d6df438c4f1cba339e3ad80acc405e61f4500ac951fa36a177133f4"},
+    {file = "nbqa-1.8.4-py3-none-any.whl", hash = "sha256:0e2acd73320ad1aa56f15200f9ea517c0ecb5ac388d217aee97fab66272c604b"},
+    {file = "nbqa-1.8.4.tar.gz", hash = "sha256:ca983e115d81f5cf149f70c4bf5b8baa36694a3eaf0783fe508dbf05b9767e07"},
 ]
 
 [package.dependencies]
@@ -4981,4 +4981,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "be19f6de8adb6c8077a030459465735432287fa3d483d91eb7afe3172d79415c"
+content-hash = "49b6b2d98a6b9018894334d6dcdd2f4dfa0d3dc0761dca5f244fbd38c7622f5e"
