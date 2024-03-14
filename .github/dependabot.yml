@@ -14,3 +14,4 @@ updates:
         dependency-type: "production"
       development-dependencies:
         dependency-type: "development"
+    open-pull-requests-limit: 10
