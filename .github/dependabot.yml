@@ -10,10 +10,7 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      production-dependencies:
-        dependency-type: "production"
-      development-dependencies:
-        dependency-type: "development"
-    allow:
-      - dependency-type: "direct"
+      python-packages:
+        patterns:
+          - "*"
     open-pull-requests-limit: 10
