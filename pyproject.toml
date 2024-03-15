@@ -14,7 +14,7 @@ numpy = "^1.26.4"
 pandas = "^2.2.1"
 
 [tool.poetry.group.dev.dependencies]
-dvc = { extras = ["s3"], version = "^3.48.4" }     # dvc with gdrive may be slow
+# do not add DVC to poetry, it is too slow
 pre-commit = "^3.6.2"
 pyupgrade = "^3.15.1"
 autoflake = "^2.3.1"
@@ -94,6 +94,9 @@ disable = [
 # [tool.bandit]
 # exclude_dirs = []
 # skips = ["B403", "B301"] # pickle files
+
+# [tool.bandit.assert_used]
+# skips = ['*_test.py', '*/test_*.py']
 
 [build-system]
 requires = ["poetry-core"]
