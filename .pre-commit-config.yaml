@@ -100,15 +100,15 @@ repos:
         args: ["-c", "pyproject.toml"]
         additional_dependencies: ["bandit[toml]"]
 
-  - repo: https://github.com/crate-ci/typos
-    rev: v1.19.0
-    hooks:
-      - id: typos
-
   - repo: https://github.com/tox-dev/pyproject-fmt
     rev: "1.0.0"
     hooks:
       - id: pyproject-fmt
+
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.19.0
+    hooks:
+      - id: typos
 
   # - repo: https://github.com/astral-sh/ruff-pre-commit
   #   rev: v0.1.9
