@@ -74,7 +74,7 @@ float_to_top = true
 
 [tool.flake8]
 max-line-length = 120
-extend-ignore = ["E203","D"] # Whitespace before ':' for black compatibility
+extend-ignore = ["E203"] # Whitespace before ':' for black compatibility
 
 [tool.mypy]
 python_version = "3.9"
