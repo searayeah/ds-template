@@ -75,22 +75,6 @@ float_to_top = true
 max-line-length = 120
 extend-ignore = "E203" # Whitespace before ':' for black compatibility
 
-[tool.mypy]
-python_version = "3.9"
-strict = true
-show_error_context = true
-pretty = true
-# ignore_missing_imports = true # ignore packages without type-checking
-
-[tool.autoflake]
-remove-all-unused-imports = true
-ignore-init-module-imports = true
-remove-duplicate-keys = true
-remove-unused-variables = true
-recursive = true
-expand-star-imports = true
-in-place = true
-
 [tool.pylint]
 py-version = "3.9"
 max-line-length = 120
@@ -106,6 +90,22 @@ disable = [
 
 # [tool.bandit.assert_used]
 # skips = ['*_test.py', '*/test_*.py']
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+show_error_context = true
+pretty = true
+# ignore_missing_imports = true # ignore packages without type-checking
+
+[tool.autoflake]
+remove-all-unused-imports = true
+ignore-init-module-imports = true
+remove-duplicate-keys = true
+remove-unused-variables = true
+recursive = true
+expand-star-imports = true
+in-place = true
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
