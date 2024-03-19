@@ -2,6 +2,7 @@ default_language_version:
   python: python3.9
 
 repos:
+  # main
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
@@ -29,6 +30,7 @@ repos:
     hooks:
       - id: gitleaks
 
+  # shell, bash
   - repo: https://github.com/scop/pre-commit-shfmt
     rev: v3.8.0-1
     hooks:
@@ -39,6 +41,7 @@ repos:
     hooks:
       - id: shellcheck
 
+  # yaml and markdown
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.0-alpha.8
     hooks:
@@ -55,6 +58,7 @@ repos:
     hooks:
       - id: actionlint
 
+  # python
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.15.1
     hooks:
@@ -65,6 +69,11 @@ repos:
     rev: v2.3.0
     hooks:
       - id: autoflake
+
+  - repo: https://github.com/MarcoGorelli/auto-walrus
+    rev: v0.2.2
+    hooks:
+      - id: auto-walrus
 
   - repo: https://github.com/PyCQA/isort
     rev: 5.13.2
@@ -83,6 +92,28 @@ repos:
         additional_dependencies:
           [flake8-bugbear, flake8-simplify, flake8-pyproject]
 
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-check-blanket-type-ignore
+      - id: python-check-mock-methods
+      - id: python-no-eval
+      - id: python-no-log-warn
+      - id: python-use-type-annotations
+      - id: rst-backticks
+      - id: rst-directive-colons
+      - id: rst-inline-touching-normal
+      - id: text-unicode-replacement-char
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.7
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
+
+  # jupyter notebooks
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.7.1
     hooks:
@@ -95,17 +126,17 @@ repos:
         additional_dependencies:
           [flake8-bugbear, flake8-simplify, flake8-pyproject]
 
-  - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.7
-    hooks:
-      - id: bandit
-        args: ["-c", "pyproject.toml"]
-        additional_dependencies: ["bandit[toml]"]
-
+  # pyproject.toml
   - repo: https://github.com/tox-dev/pyproject-fmt
     rev: "1.0.0"
     hooks:
       - id: pyproject-fmt
+
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.16
+    hooks:
+      - id: validate-pyproject
+        additional_dependencies: ["validate-pyproject-schema-store[all]"]
 
   # - repo: https://github.com/astral-sh/ruff-pre-commit
   #   rev: v0.1.9
