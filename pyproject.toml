@@ -59,12 +59,12 @@ extend-include = ["*.ipynb"]
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    "D",      # documentation
-    "ANN101", # annotationg self in class methods, will be deprecated
-    "RUF012", # mutable class attributes type checking
-    "ANN102", # annotationg cls in class methods, will be deprecated
-    "COM812", # missing-trailing-comma
-    "FA100",  # future-annotations
+  "D",      # documentation
+  "ANN101", # annotationg self in class methods, will be deprecated
+  "RUF012", # mutable class attributes type checking
+  "ANN102", # annotationg cls in class methods, will be deprecated
+  "COM812", # missing-trailing-comma
+  "FA100",  # future-annotations
 ]
 
 [tool.isort]
@@ -75,6 +75,22 @@ float_to_top = true
 [tool.flake8]
 max-line-length = 120
 extend-ignore = ["E203"] # Whitespace before ':' for black compatibility
+
+[tool.pylint]
+py-version = "3.9"
+max-line-length = 120
+disable = [
+  "C0116", # documentation
+  "C0114", # documentation
+  "C0115", # documentation
+]
+
+# [tool.bandit]
+# exclude_dirs = []
+# skips = ["B403", "B301"] # pickle files
+
+# [tool.bandit.assert_used]
+# skips = ['*_test.py', '*/test_*.py']
 
 [tool.mypy]
 python_version = "3.9"
@@ -91,22 +107,6 @@ remove-unused-variables = true
 recursive = true
 expand-star-imports = true
 in-place = true
-
-[tool.pylint]
-py-version = "3.9"
-max-line-length = 120
-disable = [
-    "C0116", # documentation
-    "C0114", # documentation
-    "C0115", # documentation
-]
-
-# [tool.bandit]
-# exclude_dirs = []
-# skips = ["B403", "B301"] # pickle files
-
-# [tool.bandit.assert_used]
-# skips = ['*_test.py', '*/test_*.py']
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
