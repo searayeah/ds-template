@@ -44,6 +44,7 @@ types-seaborn = "^0.13.2.20240311"
 types-requests = "^2.31.0.20240311"
 types-pyyaml = "^6.0.12.20240311"
 types-regex = "^2023.12.25.20240311"
+types-openpyxl = "^3.1.0.20240311"
 
 [tool.black]
 line-length = 120
