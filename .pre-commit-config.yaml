@@ -53,6 +53,12 @@ repos:
     hooks:
       - id: markdownlint # prettier is used for formatting
 
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.29.0
+    hooks:
+      - id: yamllint
+        args: [-d=relaxed]
+
   - repo: https://github.com/rhysd/actionlint
     rev: v1.6.27
     hooks:
