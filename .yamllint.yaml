@@ -1,0 +1,9 @@
+# TODO
+extends: default
+
+rules:
+  document-start: disable
+  comments: disable
+  comments-indentation: disable
+  truthy:
+    check-keys: false

@@ -31,9 +31,9 @@ flake8-pyproject = "^1.2.3"
 nbqa = "^1.8.4"
 bandit = { extras = ["toml"], version = "^1.7.8" }
 # vscode highlighting
+ruff = "^0.3.3"
 mypy = "^1.9.0"
 pylint = "^3.1.0"
-ruff = "^0.3.3"
 # stubs for mypy type checking and code completions
 typing-extensions = "^4.10.0"
 pandas-stubs = "^2.2.1.240316"
@@ -77,6 +77,13 @@ float_to_top = true
 max-line-length = 120
 extend-ignore = ["E203"] # Whitespace before ':' for black compatibility
 
+# [tool.bandit]
+# exclude_dirs = []
+# skips = ["B403", "B301"] # pickle files
+
+# [tool.bandit.assert_used]
+# skips = ['*_test.py', '*/test_*.py']
+
 [tool.pylint]
 py-version = "3.9"
 max-line-length = 120
@@ -86,19 +93,20 @@ disable = [
   "C0115", # documentation
 ]
 
-# [tool.bandit]
-# exclude_dirs = []
-# skips = ["B403", "B301"] # pickle files
-
-# [tool.bandit.assert_used]
-# skips = ['*_test.py', '*/test_*.py']
-
 [tool.mypy]
 python_version = "3.9"
 strict = true
 show_error_context = true
 pretty = true
 # ignore_missing_imports = true # ignore packages without type-checking
+
+[tool.yamlfix]
+comments_min_spaces_from_content = 1
+explicit_start = false
+none_representation = "null"
+quote_representation = "\""
+section_whitelines = 1
+whitelines = 1
 
 [tool.autoflake]
 remove-all-unused-imports = true

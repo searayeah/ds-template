@@ -2,12 +2,12 @@ default_language_version:
   python: python3.9
 
 repos:
-  # main
+  # all-in-one
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
       - id: check-added-large-files
-        args: ["--maxkb=5000"]
+        args: [--maxkb=5000]
       - id: check-ast
       - id: check-builtin-literals
       - id: check-case-conflict
@@ -18,17 +18,60 @@ repos:
       - id: check-xml
       - id: check-yaml
       - id: detect-aws-credentials
-        args: ["--allow-missing-credentials"]
+        args: [--allow-missing-credentials]
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: mixed-line-ending
       - id: requirements-txt-fixer
       - id: trailing-whitespace
 
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.28.0
+    hooks:
+      # - id: check-jsonschema
+      - id: check-metaschema
+      - id: check-dependabot
+      - id: check-azure-pipelines
+      - id: check-bamboo-spec
+      - id: check-bitbucket-pipelines
+      - id: check-buildkite
+      - id: check-cloudbuild
+      - id: check-dependabot
+      - id: check-drone-ci
+      - id: check-github-actions
+      - id: check-github-workflows
+      - id: check-gitlab-ci
+      - id: check-readthedocs
+      - id: check-renovate
+      - id: check-travis
+      - id: check-woodpecker-ci
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-check-blanket-type-ignore
+      - id: python-check-mock-methods
+      - id: python-no-eval
+      - id: python-no-log-warn
+      - id: python-use-type-annotations
+      - id: rst-backticks
+      - id: rst-directive-colons
+      - id: rst-inline-touching-normal
+      - id: text-unicode-replacement-char
+
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.18.2
     hooks:
       - id: gitleaks
+
+  # ini
+  - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: v2.12.0
+    hooks:
+      - id: pretty-format-ini
+        args:
+          - --autofix
 
   # shell, bash
   - repo: https://github.com/scop/pre-commit-shfmt
@@ -41,23 +84,33 @@ repos:
     hooks:
       - id: shellcheck
 
-  # yaml and markdown
+  # json
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        types_or: [markdown, yaml, json]
+        types_or:
+          - json
+          # - markdown
+          # - yaml
 
+  # markdown
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.39.0
     hooks:
-      - id: markdownlint # prettier is used for formatting
+      - id: markdownlint
+      - id: markdownlint-fix
+
+  # yaml
+  - repo: https://github.com/lyz-code/yamlfix/
+    rev: 1.16.0
+    hooks:
+      - id: yamlfix
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.29.0
     hooks:
       - id: yamllint
-        args: [-d=relaxed]
 
   - repo: https://github.com/rhysd/actionlint
     rev: v1.6.27
@@ -96,28 +149,17 @@ repos:
     hooks:
       - id: flake8
         additional_dependencies:
-          [flake8-bugbear, flake8-simplify, flake8-pyproject]
-
-  - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.10.0
-    hooks:
-      - id: python-check-blanket-noqa
-      - id: python-check-blanket-type-ignore
-      - id: python-check-mock-methods
-      - id: python-no-eval
-      - id: python-no-log-warn
-      - id: python-use-type-annotations
-      - id: rst-backticks
-      - id: rst-directive-colons
-      - id: rst-inline-touching-normal
-      - id: text-unicode-replacement-char
+          - flake8-bugbear
+          - flake8-simplify
+          - flake8-pyproject
 
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.8
     hooks:
       - id: bandit
-        args: ["-c", "pyproject.toml"]
-        additional_dependencies: ["bandit[toml]"]
+        args: [-c, pyproject.toml]
+        additional_dependencies:
+          - bandit[toml]
 
   # jupyter notebooks
   - repo: https://github.com/nbQA-dev/nbQA
@@ -125,30 +167,34 @@ repos:
     hooks:
       - id: nbqa-check-ast
       - id: nbqa-pyupgrade
-        args: ["--py39-plus"] # pyupgrade do not support pyproject.toml
+        args: [--py39-plus] # pyupgrade do not support pyproject.toml
       - id: nbqa-isort
       - id: nbqa-black
       - id: nbqa-flake8
         additional_dependencies:
-          [flake8-bugbear, flake8-simplify, flake8-pyproject]
+          - flake8-bugbear
+          - flake8-simplify
+          - flake8-pyproject
 
   # pyproject.toml
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "1.7.0"
+    rev: 1.7.0
     hooks:
       - id: pyproject-fmt
+        additional_dependencies: [tox>=4.9]
 
   - repo: https://github.com/abravalheri/validate-pyproject
     rev: v0.16
     hooks:
       - id: validate-pyproject
-        additional_dependencies: ["validate-pyproject-schema-store[all]"]
+        additional_dependencies:
+          - validate-pyproject-schema-store[all]
 
   # - repo: https://github.com/astral-sh/ruff-pre-commit
   #   rev: v0.1.9
   #   hooks:
   #     - id: ruff
-  #       types_or: [python, pyi, jupyter] # Added Jupyter support
+  #       types_or: [python, pyi, jupyter]  # Added Jupyter support
   #       args: [--fix]
   #     - id: ruff-format
   #       types_or: [python, pyi, jupyter]
