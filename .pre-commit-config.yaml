@@ -114,7 +114,7 @@ repos:
       - id: yamlfix
 
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.29.0
+    rev: v1.35.1
     hooks:
       - id: yamllint
 
@@ -125,7 +125,7 @@ repos:
 
   # python
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.1
+    rev: v3.15.2
     hooks:
       - id: pyupgrade
         args: [--py39-plus] # does not get values from pyproject.toml
