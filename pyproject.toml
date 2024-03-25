@@ -19,8 +19,8 @@ catboost = "^1.2.3"
 [tool.poetry.group.dev.dependencies]
 # do not add DVC to poetry, it is too slow
 # linting and formatting
-pre-commit = "^3.6.2"
-pyupgrade = "^3.15.1"
+pre-commit = "^3.7.0"
+pyupgrade = "^3.15.2"
 autoflake = "^2.3.1"
 isort = "^5.13.2"
 black = "^24.3.0"
