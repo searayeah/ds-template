@@ -67,7 +67,7 @@ repos:
       - id: gitleaks
 
   - repo: https://github.com/sirwart/ripsecrets
-    rev: v0.1.7 # Use latest tag on GitHub
+    rev: v0.1.7
     hooks:
       - id: ripsecrets
 
