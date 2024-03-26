@@ -28,9 +28,8 @@ repos:
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.28.0
     hooks:
-      # - id: check-jsonschema
+      # id: check-jsonschema
       - id: check-metaschema
-      - id: check-dependabot
       - id: check-azure-pipelines
       - id: check-bamboo-spec
       - id: check-bitbucket-pipelines
