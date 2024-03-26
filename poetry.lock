@@ -1997,6 +1997,7 @@ test = ["pep440", "pre-commit", "pytest", "testpath"]
 [[package]]
 name = "nbqa"
 version = "1.8.5"
+version = "1.8.5"
 description = "Run any standard Python code quality tool on a Jupyter Notebook"
 optional = false
 python-versions = ">=3.8.0"
@@ -3667,4 +3668,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "cb5edabf9e9b0a3646d0c71b3cac69a2f68ddc33dd80cde3058b80371d2cb945"
+content-hash = "21b4e26675133e72fe9a53f0986e3fea708ab8db5aa47ceb5f6f730db6c763dd"
