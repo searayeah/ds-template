@@ -31,7 +31,7 @@ flake8-pyproject = "^1.2.3"
 nbqa = "^1.8.4"
 bandit = { extras = ["toml"], version = "^1.7.8" }
 # vscode highlighting
-ruff = "^0.3.4"
+ruff = "^0.3.2"
 mypy = "^1.9.0"
 pylint = "^3.1.0"
 # stubs for mypy type checking and code completions
