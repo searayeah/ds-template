@@ -12,23 +12,39 @@ repos:
       - id: check-builtin-literals
       - id: check-case-conflict
       - id: check-docstring-first
-      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
       - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-vcs-permalinks
       - id: check-toml
       - id: check-xml
       - id: check-yaml
+      - id: debug-statements
+      - id: destroyed-symlinks
       - id: detect-aws-credentials
         args: [--allow-missing-credentials]
       - id: detect-private-key
       - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: fix-encoding-pragma
+        args: [--remove]
+      - id: forbid-new-submodules
+      - id: forbid-submodules
       - id: mixed-line-ending
+      - id: name-tests-test
       - id: requirements-txt-fixer
       - id: trailing-whitespace
+      # - id: double-quote-string-fixer
+      # - id: file-contents-sorter
+      # - id: no-commit-to-branch
+      # - id: pretty-format-json
+      # - id: sort-simple-yaml
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.28.0
     hooks:
-      # id: check-jsonschema
       - id: check-metaschema
       - id: check-azure-pipelines
       - id: check-bamboo-spec
@@ -44,6 +60,7 @@ repos:
       - id: check-renovate
       - id: check-travis
       - id: check-woodpecker-ci
+      # - id: check-jsonschema
 
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.10.0
@@ -64,11 +81,6 @@ repos:
     rev: v8.18.2
     hooks:
       - id: gitleaks
-
-  # - repo: https://github.com/sirwart/ripsecrets
-  #   rev: v0.1.7
-  #   hooks:
-  #     - id: ripsecrets
 
   # ini
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
@@ -97,7 +109,7 @@ repos:
         types_or:
           - json
           - yaml
-          # - markdown
+          - markdown
 
   # markdown
   - repo: https://github.com/igorshubovych/markdownlint-cli
@@ -107,6 +119,7 @@ repos:
       - id: markdownlint-fix
 
   # yaml
+  # use prettier instead, but can run it once to remove quotes and other stuff
   # - repo: https://github.com/lyz-code/yamlfix/
   #   rev: 1.16.0
   #   hooks:
@@ -138,6 +151,11 @@ repos:
     rev: v0.2.2
     hooks:
       - id: auto-walrus
+
+  - repo: https://github.com/asottile/yesqa
+    rev: v1.5.0
+    hooks:
+      - id: yesqa
 
   - repo: https://github.com/PyCQA/isort
     rev: 5.13.2
@@ -198,10 +216,11 @@ repos:
       - id: validate-pyproject
         additional_dependencies: ["validate-pyproject-schema-store[all]"]
 
-  # - repo: https://github.com/AleksaC/hadolint-py
-  #   rev: v2.12.0
-  #   hooks:
-  #     - id: hadolint
+  # docker
+  - repo: https://github.com/AleksaC/hadolint-py
+    rev: v2.12.0
+    hooks:
+      - id: hadolint
 
   # - repo: https://github.com/astral-sh/ruff-pre-commit
   #   rev: v0.1.9
