@@ -71,7 +71,7 @@ float_to_top = true
 
 [tool.flake8]
 max-line-length = 120
-extend-ignore = ["E203"] # Whitespace before ':' for black compatibility
+extend-ignore = ["E203"] # Whitespace before ':' for black compatability
 
 # [tool.bandit]
 # exclude_dirs = []
