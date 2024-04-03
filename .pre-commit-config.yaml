@@ -52,9 +52,8 @@ repos:
         types_or: []
         args:
           - "--schemafile"
-          - >-
-            https://raw.githubusercontent.com/DavidAnson/markdownlint
-            /main/schema/markdownlint-config-schema.json
+          - "https://raw.githubusercontent.com/DavidAnson/markdownlint
+            /main/schema/markdownlint-config-schema.json"
       # - id: check-jsonschema
       #   files: ^pyproject.toml$
       #   types: ["toml"]
