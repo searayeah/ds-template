@@ -43,14 +43,14 @@ types-regex = "^2023.12.25.20240311"
 types-openpyxl = "^3.1.0.20240331"
 
 [tool.black]
-line-length = 120
+line-length = 90
 target-version = ["py39"]
 # skip-string-normalization = true
 # skip-magic-trailing-comma = true
 
 [tool.ruff]
 target-version = "py39"
-line-length = 120
+line-length = 90
 extend-include = ["*.ipynb"]
 
 [tool.ruff.lint]
@@ -66,11 +66,11 @@ ignore = [
 
 [tool.isort]
 profile = "black"
-line_length = 120
+line_length = 90
 float_to_top = true
 
 [tool.flake8]
-max-line-length = 120
+max-line-length = 90
 extend-ignore = ["E203"] # Whitespace before ':' for black compatability
 
 # [tool.bandit]
@@ -82,7 +82,7 @@ extend-ignore = ["E203"] # Whitespace before ':' for black compatability
 
 [tool.pylint]
 py-version = "3.9"
-max-line-length = 120
+max-line-length = 90
 disable = [
   "C0116", # documentation
   "C0114", # documentation
@@ -106,12 +106,12 @@ whitelines = 1
 preserve_quotes = true # unless quote_representation is fixed
 
 [tool.autoflake]
+expand-star-imports = true
 remove-all-unused-imports = true
 ignore-init-module-imports = true
 remove-duplicate-keys = true
 remove-unused-variables = true
 recursive = true
-expand-star-imports = true
 in-place = true
 
 [build-system]
