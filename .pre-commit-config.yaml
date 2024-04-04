@@ -46,13 +46,15 @@ repos:
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.28.1
     hooks:
-      - id: check-jsonschema
-        files: ^.markdownlint.yaml$
-        types: ["yaml"]
-        types_or: []
-        args:
-          - "--schemafile"
-          - "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json"
+      # - id: check-jsonschema
+      #   files: ^.markdownlint.yaml$
+      #   types: ["yaml"]
+      #   types_or: []
+      #   args:
+      #     - "--schemafile"
+      #     - >
+      #       https://raw.githubusercontent.com/DavidAnson/markdownlint
+      #       /main/schema/markdownlint-config-schema.json
       # - id: check-jsonschema
       #   files: ^pyproject.toml$
       #   types: ["toml"]
