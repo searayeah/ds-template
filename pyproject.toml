@@ -45,7 +45,6 @@ types-openpyxl = "^3.1.0.20240402"
 [tool.black]
 line-length = 90
 target-version = ["py39"]
-# skip-string-normalization = true
 # skip-magic-trailing-comma = true
 
 [tool.ruff]
@@ -103,7 +102,7 @@ none_representation = "null"
 quote_representation = "\""
 section_whitelines = 1
 whitelines = 1
-preserve_quotes = true # unless quote_representation is fixed
+preserve_quotes = true # unless quote_representation bug is fixed
 
 [tool.autoflake]
 expand-star-imports = true
