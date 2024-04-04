@@ -15,8 +15,11 @@ work_dir=$(mktemp -d -p .)
 git clone https://github.com/searayeah/ds-template.git "$work_dir"
 mv "$work_dir/.editorconfig" ".editorconfig"
 
-cat ".gitignore" >>"$work_dir/.gitignore"
-rm ".gitignore"
+if [[ -e ".gitignore" ]]; then
+  cat ".gitignore" >>"$work_dir/.gitignore"
+  rm ".gitignore"
+fi
+
 mv "$work_dir/.gitignore" ".gitignore"
 
 mv "$work_dir/.markdownlint.yaml" ".markdownlint.yaml"
