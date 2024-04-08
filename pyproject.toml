@@ -31,16 +31,16 @@ ruff = "^0.3.5"
 mypy = "^1.9.0"
 pylint = "^3.1.0"
 # stubs for mypy type checking and code completions
-typing-extensions = "^4.10.0"
+typing-extensions = "^4.11.0"
 pandas-stubs = "^2.2.1.240316"
-types-pillow = "^10.2.0.20240331"
+types-pillow = "^10.2.0.20240406"
 types-beautifulsoup4 = "^4.12.0.20240229"
 types-tqdm = "^4.66.0.20240106"
 types-seaborn = "^0.13.2.20240311"
-types-requests = "^2.31.0.20240403"
+types-requests = "^2.31.0.20240406"
 types-pyyaml = "^6.0.12.20240311"
 types-regex = "^2023.12.25.20240311"
-types-openpyxl = "^3.1.0.20240402"
+types-openpyxl = "^3.1.0.20240408"
 
 [tool.black]
 line-length = 90
