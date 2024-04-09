@@ -7,6 +7,7 @@ MD013:
   line_length: 90
   heading_line_length: 90
   code_block_line_length: 90
+  tables: false
 
 # MD024/no-duplicate-heading : Multiple headings with the same content :
 # https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md024.md
