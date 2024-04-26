@@ -139,6 +139,7 @@ repos:
   #   hooks:
   #     - id: prettier
   #       types_or: [json, yaml, markdown]
+
   - repo: https://github.com/searayeah/no-bullshit-mirrors-prettier
     rev: v3.1.0
     hooks:
