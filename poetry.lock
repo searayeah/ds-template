@@ -1961,13 +1961,13 @@ test = ["jupyter-server (>=2.0.0)", "pytest (>=7.0)", "pytest-jupyter[server] (>
 
 [[package]]
 name = "jupyterlab"
-version = "4.1.7"
+version = "4.1.8"
 description = "JupyterLab computational environment"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "jupyterlab-4.1.7-py3-none-any.whl", hash = "sha256:43ccd32a3afa641912e4e2d2875b8cebbebcead57a35e2987c43bf496ac49d58"},
-    {file = "jupyterlab-4.1.7.tar.gz", hash = "sha256:32532a43d35d4aaab328722e738ee527915fd572a5c84ae5eeba6e409d0cdc55"},
+    {file = "jupyterlab-4.1.8-py3-none-any.whl", hash = "sha256:c3baf3a2f91f89d110ed5786cd18672b9a357129d4e389d2a0dead15e11a4d2c"},
+    {file = "jupyterlab-4.1.8.tar.gz", hash = "sha256:3384aded8680e7ce504fd63b8bb89a39df21c9c7694d9e7dc4a68742cdb30f9b"},
 ]
 
 [package.dependencies]
@@ -3132,13 +3132,13 @@ sympy = "*"
 
 [[package]]
 name = "onnxscript"
-version = "0.1.0.dev20240426"
+version = "0.1.0.dev20240429"
 description = "Naturally author ONNX functions and models using a subset of Python"
 optional = true
 python-versions = ">=3.8"
 files = [
-    {file = "onnxscript-0.1.0.dev20240426-py3-none-any.whl", hash = "sha256:27551c173ecf4c5984594746f04369b973cba7764df895346d27e06b6b456086"},
-    {file = "onnxscript-0.1.0.dev20240426.tar.gz", hash = "sha256:da08c3099a7ace61032be3dc6323136cae7398bc426911d1f8f5084e7eabe550"},
+    {file = "onnxscript-0.1.0.dev20240429-py3-none-any.whl", hash = "sha256:3c85e2e46871bf226e30bc85cdbd64026d55cc91b49d740c895450debde49e51"},
+    {file = "onnxscript-0.1.0.dev20240429.tar.gz", hash = "sha256:74b7b2116109c9c7b036d4b525b6e9e0ac6aafe89830a3f487bd16ed532e7a02"},
 ]
 
 [package.dependencies]
@@ -5452,13 +5452,13 @@ referencing = "*"
 
 [[package]]
 name = "types-openpyxl"
-version = "3.1.0.20240425"
+version = "3.1.0.20240428"
 description = "Typing stubs for openpyxl"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-openpyxl-3.1.0.20240425.tar.gz", hash = "sha256:774176d8d8d709b62915fc01a182aa4a5400fa4f6acce54927d3a782a8135c19"},
-    {file = "types_openpyxl-3.1.0.20240425-py3-none-any.whl", hash = "sha256:3f37e8400ffb12e10f768c222acb3d718eb401ff72147491f1c679dd97d9fb52"},
+    {file = "types-openpyxl-3.1.0.20240428.tar.gz", hash = "sha256:76f5d01fb6ecb495683da957ac4e15b982efbeab772f728a348c6e01ae990e9b"},
+    {file = "types_openpyxl-3.1.0.20240428-py3-none-any.whl", hash = "sha256:08b180ec49d15140e07399a3f3cb75fd25e9e09e3326319fc6be5636892480f5"},
 ]
 
 [[package]]
@@ -6090,4 +6090,4 @@ vis = ["matplotlib", "seaborn"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "7bbccf56d9589600731dd7c032a10a3e2ebce594024200b4a60affea9a5830e9"
+content-hash = "39330c1d50396369a9951424fbb13a3c05c6e7e8cf37c15a301604eefacec30c"
