@@ -13,7 +13,7 @@ max_line_length = 90
 [*.{py,pyi}]
 indent_size = 4
 
-[*.{ipynb,lock,gitignore}]
+[*.{ipynb,lock,gitignore,tex,csv,tsv}]
 indent_style = unset
 indent_size = unset
 end_of_line = unset
