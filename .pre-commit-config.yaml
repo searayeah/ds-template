@@ -47,7 +47,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.2
+    rev: 0.28.3
     hooks:
       # - id: check-jsonschema
       #   files: ^.markdownlint.yaml$
@@ -166,7 +166,7 @@ repos:
       - id: yamllint
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.6.27
+    rev: v1.7.0
     hooks:
       - id: actionlint
 
@@ -241,13 +241,13 @@ repos:
 
   # pyproject.toml
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: 1.8.0
+    rev: 2.0.4
     hooks:
       - id: pyproject-fmt
         additional_dependencies: [tox>=4.9]
 
   - repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.16
+    rev: v0.17
     hooks:
       - id: validate-pyproject
         additional_dependencies: ["validate-pyproject-schema-store[all]"]
