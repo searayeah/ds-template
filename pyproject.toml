@@ -1,8 +1,16 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = [
+  "poetry-core",
+]
+
 [tool.poetry]
 name = "ds-template"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = [
+  "Your Name <you@example.com>",
+]
 license = "MIT"
 readme = "README.md"
 
@@ -50,8 +58,15 @@ onnx = { version = "^1.16.0", optional = true }
 skl2onnx = { version = "^1.16.0", optional = true }
 
 [tool.poetry.extras]
-vis = ["seaborn", "matplotlib"]
-ml = ["scikit-learn", "catboost", "umap-learn"]
+vis = [
+  "seaborn",
+  "matplotlib",
+]
+ml = [
+  "scikit-learn",
+  "catboost",
+  "umap-learn",
+]
 dl = [
   "torch",
   "torchvision",
@@ -65,9 +80,23 @@ dl = [
   "opencv-python",
   "pillow",
 ]
-parse = ["beautifulsoup4", "fake-useragent", "requests"]
-log = ["wandb", "loguru", "hydra-core", "omegaconf"]
-onnx = ["onnxscript", "onnxruntime", "onnx", "skl2onnx"]
+parse = [
+  "beautifulsoup4",
+  "fake-useragent",
+  "requests",
+]
+log = [
+  "wandb",
+  "loguru",
+  "hydra-core",
+  "omegaconf",
+]
+onnx = [
+  "onnxscript",
+  "onnxruntime",
+  "onnx",
+  "skl2onnx",
+]
 
 [tool.poetry.group.dev.dependencies]
 # do not add DVC to poetry, it is too slow
@@ -106,16 +135,22 @@ types-tabulate = "^0.9.0.20240106"
 
 [tool.black]
 line-length = 90
-target-version = ["py39"]
+target-version = [
+  "py39",
+]
 # skip-magic-trailing-comma = true
 
 [tool.ruff]
 target-version = "py39"
 line-length = 90
-extend-include = ["*.ipynb"]
+extend-include = [
+  "*.ipynb",
+]
 
 [tool.ruff.lint]
-select = ["ALL"]
+select = [
+  "ALL",
+]
 ignore = [
   "D",      # documentation
   "ANN101", # annotationg self in class methods, will be deprecated
@@ -132,7 +167,9 @@ float_to_top = true
 
 [tool.flake8]
 max-line-length = 90
-extend-ignore = ["E203"] # Whitespace before ':' for black compatability
+extend-ignore = [
+  "E203",
+] # Whitespace before ':' for black compatability
 
 # [tool.bandit]
 # exclude_dirs = []
@@ -174,9 +211,3 @@ remove-duplicate-keys = true
 remove-unused-variables = true
 recursive = true
 in-place = true
-
-[build-system]
-build-backend = "poetry.core.masonry.api"
-requires = [
-  "poetry-core",
-]
