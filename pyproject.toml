@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 ipywidgets = "^8.1.2"
-jupyterlab = "^4.1.8"
+jupyterlab = "^4.2.0"
 pandas = "^2.2.2"
 numpy = "^1.26.4"
 scipy = "^1.13.0"
@@ -25,10 +25,10 @@ umap-learn = { version = "^0.5.6", optional = true }
 # dl
 torch = { version = "^2.3.0", optional = true }
 torchvision = { version = "^0.18.0", optional = true }
-transformers = { version = "^4.40.1", optional = true }
-datasets = { version = "^2.19.0", optional = true }
+transformers = { version = "^4.40.2", optional = true }
+datasets = { version = "^2.19.1", optional = true }
 evaluate = { version = "^0.4.2", optional = true }
-accelerate = { version = "^0.30.0", optional = true }
+accelerate = { version = "^0.30.1", optional = true }
 torcheval = { version = "^0.0.7", optional = true }
 torchaudio = { version = "^2.3.0", optional = true }
 lightning = { version = "^2.2.4", optional = true }
@@ -39,12 +39,12 @@ beautifulsoup4 = { version = "^4.12.3", optional = true }
 fake-useragent = { version = "^1.5.1", optional = true }
 requests = { version = "^2.31.0", optional = true }
 # log
-wandb = { version = "^0.16.6", optional = true }
+wandb = { version = "^0.17.0", optional = true }
 loguru = { version = "^0.7.2", optional = true }
 hydra-core = { version = "^1.3.2", optional = true }
 omegaconf = { version = "^2.3.0", optional = true }
 # onnx
-onnxscript = { version = "^0.1.0.dev20240506", optional = true }
+onnxscript = { version = "^0.1.0.dev20240513", optional = true }
 onnxruntime = { version = "^1.17.3", optional = true }
 onnx = { version = "^1.16.0", optional = true }
 skl2onnx = { version = "^1.16.0", optional = true }
@@ -72,7 +72,7 @@ onnx = ["onnxscript", "onnxruntime", "onnx", "skl2onnx"]
 [tool.poetry.group.dev.dependencies]
 # do not add DVC to poetry, it is too slow
 # linting and formatting
-pre-commit = "^3.7.0"
+pre-commit = "^3.7.1"
 # for vscode
 isort = "^5.13.2"
 black = "^24.4.0"
@@ -80,28 +80,28 @@ flake8 = "^7.0.0"
 flake8-bugbear = "^24.4.21"
 flake8-simplify = "^0.21.0"
 flake8-pyproject = "^1.2.3"
-ruff = "^0.4.3"
+ruff = "^0.4.4"
 mypy = "^1.9.0"
 pylint = "^3.1.0"
 # stubs for mypy type checking and code completions
 typing-extensions = "^4.11.0"
 pandas-stubs = "^2.2.1.240316"
-types-pillow = "^10.2.0.20240415"
-types-beautifulsoup4 = "^4.12.0.20240504"
+types-pillow = "^10.2.0.20240511"
+types-beautifulsoup4 = "^4.12.0.20240511"
 types-tqdm = "^4.66.0.20240417"
 types-seaborn = "^0.13.2.20240417"
 types-requests = "^2.31.0.20240406"
 types-pyyaml = "^6.0.12.20240311"
-types-regex = "^2024.4.28.20240506"
+types-regex = "^2024.5.10.20240512"
 types-openpyxl = "^3.1.0.20240428"
 types-pygments = "^2.18.0.20240506"
 types-colorama = "^0.4.15.20240311"
 types-decorator = "^5.1.8.20240310"
 types-jsonschema = "^4.22.0.20240501"
 types-protobuf = "^5.26.0.20240422"
-types-psutil = "^5.9.5.20240423"
-types-setuptools = "^69.5.0.20240423"
-types-six = "^1.16.21.20240425"
+types-psutil = "^5.9.5.20240511"
+types-setuptools = "^69.5.0.20240513"
+types-six = "^1.16.21.20240513"
 types-tabulate = "^0.9.0.20240106"
 
 [tool.black]
