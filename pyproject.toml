@@ -147,17 +147,16 @@ extend-include = [
   "*.ipynb",
 ]
 
-[tool.ruff.lint]
-select = [
+lint.select = [
   "ALL",
 ]
-ignore = [
-  "D",      # documentation
+lint.ignore = [
   "ANN101", # annotationg self in class methods, will be deprecated
-  "RUF012", # mutable class attributes type checking
   "ANN102", # annotationg cls in class methods, will be deprecated
   "COM812", # missing-trailing-comma
+  "D",      # documentation
   "FA100",  # future-annotations
+  "RUF012", # mutable class attributes type checking
 ]
 
 [tool.isort]
