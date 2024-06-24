@@ -40,19 +40,19 @@ accelerate = { version = "^0.31.0", optional = true }
 torcheval = { version = "^0.0.7", optional = true }
 torchaudio = { version = "^2.3.0", optional = true }
 lightning = { version = "^2.3.0", optional = true }
-opencv-python = { version = "^4.10.0.82", optional = true }
+opencv-python = { version = "^4.10.0.84", optional = true }
 pillow = { version = "^10.3.0", optional = true }
 # parse
 beautifulsoup4 = { version = "^4.12.3", optional = true }
 fake-useragent = { version = "^1.5.1", optional = true }
 requests = { version = "^2.32.3", optional = true }
 # log
-wandb = { version = "^0.17.1", optional = true }
+wandb = { version = "^0.17.2", optional = true }
 loguru = { version = "^0.7.2", optional = true }
 hydra-core = { version = "^1.3.2", optional = true }
 omegaconf = { version = "^2.3.0", optional = true }
 # onnx
-onnxscript = { version = "^0.1.0.dev20240617", optional = true }
+onnxscript = { version = "^0.1.0.dev20240624", optional = true }
 onnxruntime = { version = "^1.18.0", optional = true }
 onnx = { version = "^1.16.1", optional = true }
 skl2onnx = { version = "^1.17.0", optional = true }
@@ -109,7 +109,7 @@ flake8 = "^7.1.0"
 flake8-bugbear = "^24.4.21"
 flake8-simplify = "^0.21.0"
 flake8-pyproject = "^1.2.3"
-ruff = "^0.4.9"
+ruff = "^0.4.10"
 mypy = "^1.9.0"
 pylint = "^3.2.3"
 # stubs for mypy type checking and code completions
@@ -119,16 +119,16 @@ types-pillow = "^10.2.0.20240520"
 types-beautifulsoup4 = "^4.12.0.20240511"
 types-tqdm = "^4.66.0.20240417"
 types-seaborn = "^0.13.2.20240417"
-types-requests = "^2.32.0.20240602"
+types-requests = "^2.32.0.20240622"
 types-pyyaml = "^6.0.12.20240311"
 types-regex = "^2024.5.15.20240519"
-types-openpyxl = "^3.1.2.20240601"
+types-openpyxl = "^3.1.4.20240621"
 types-pygments = "^2.18.0.20240506"
 types-colorama = "^0.4.15.20240311"
 types-decorator = "^5.1.8.20240310"
 types-jsonschema = "^4.22.0.20240610"
 types-protobuf = "^5.26.0.20240422"
-types-psutil = "^5.9.5.20240516"
+types-psutil = "^6.0.0.20240621"
 types-setuptools = "^70.0.0.20240524"
 types-six = "^1.16.21.20240513"
 types-tabulate = "^0.9.0.20240106"
