@@ -12,29 +12,3 @@ max_line_length = 90
 
 [*.{py,pyi}]
 indent_size = 4
-
-[*.{ipynb,lock,gitignore,tex,csv,tsv}]
-indent_style = unset
-indent_size = unset
-end_of_line = unset
-charset = unset
-trim_trailing_whitespace = unset
-insert_final_newline = unset
-quote_type = unset
-max_line_length = unset
-
-# [*.{yaml,yml}]
-# indent_style = space
-# indent_size = 2
-
-# [*.json]
-# indent_style = space
-# indent_size = 2
-
-# [*.toml]
-# indent_style = space
-# indent_size = 2
-
-# [*.{md,markdown}]
-# indent_style = space
-# indent_size = 2

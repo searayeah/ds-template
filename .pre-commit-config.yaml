@@ -1,9 +1,6 @@
 default_language_version:
   python: python3.9
 
-ci:
-  skip: [prettier]
-
 repos:
   # all-in-one
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -170,6 +167,11 @@ repos:
     hooks:
       - id: actionlint
 
+  - repo: https://github.com/stackrox/kube-linter
+    rev: v0.6.8
+    hooks:
+      - id: kube-linter
+
   # python
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.16.0
@@ -258,11 +260,11 @@ repos:
     hooks:
       - id: hadolint
 
-  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 2.7.3
-    hooks:
-      - id: editorconfig-checker
-        alias: ec
+  # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+  #   rev: 2.7.3
+  #   hooks:
+  #     - id: editorconfig-checker
+  #       alias: ec
 
   # - repo: https://github.com/astral-sh/ruff-pre-commit
   #   rev: v0.1.9
