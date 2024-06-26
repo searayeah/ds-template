@@ -152,18 +152,24 @@ lint.select = [
   "ALL",
 ]
 lint.ignore = [
-  "ANN101", # annotationg self in class methods, will be deprecated
-  "ANN102", # annotationg cls in class methods, will be deprecated
-  "COM812", # missing-trailing-comma
-  "D",      # documentation
-  "FA100",  # future-annotations
-  "RUF012", # mutable class attributes type checking
+  "ANN101",  # annotationg self in class methods, will be deprecated
+  "ANN102",  # annotationg cls in class methods, will be deprecated
+  "COM812",  # missing-trailing-comma
+  "D",       # documentation
+  "FA100",   # future-annotations
+  "NPY002",  # numpy random stuff
+  "PLR0913", # too many init arguments
+  "RUF012",  # mutable class attributes type checking
+  "T201",    # print statements
 ]
 
 [tool.isort]
 profile = "black"
 line_length = 90
 float_to_top = true
+known_third_party = [
+  "wandb",
+]
 
 [tool.flake8]
 max-line-length = 90
@@ -172,11 +178,7 @@ extend-ignore = [
 ] # Whitespace before ':' for black compatability
 
 # [tool.bandit]
-# exclude_dirs = []
-# skips = ["B403", "B301"] # pickle files
-
-# [tool.bandit.assert_used]
-# skips = ['*_test.py', '*/test_*.py']
+# exclude_dirs = ["tests"]
 
 [tool.pylint]
 py-version = "3.9"
@@ -193,6 +195,12 @@ strict = true
 show_error_context = true
 pretty = true
 # ignore_missing_imports = true # ignore packages without type-checking
+
+[tool.bandit.assert_used]
+skips = [
+  '*_test.py',
+  'test_*.py',
+]
 
 [tool.yamlfix]
 comments_min_spaces_from_content = 1
