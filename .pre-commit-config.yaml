@@ -167,10 +167,10 @@ repos:
     hooks:
       - id: actionlint
 
-  - repo: https://github.com/stackrox/kube-linter
-    rev: v0.6.8
-    hooks:
-      - id: kube-linter
+  # - repo: https://github.com/stackrox/kube-linter
+  #   rev: v0.6.8
+  #   hooks:
+  #     - id: kube-linter
 
   # python
   - repo: https://github.com/asottile/pyupgrade
@@ -259,6 +259,12 @@ repos:
     rev: v2.12.1b3
     hooks:
       - id: hadolint
+
+  # # makefile
+  # - repo: https://github.com/mrtazz/checkmake.git
+  #   rev: 0.2.2
+  #   hooks:
+  #     - id: checkmake
 
   # - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
   #   rev: 2.7.3

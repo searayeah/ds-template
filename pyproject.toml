@@ -30,18 +30,21 @@ matplotlib = { version = "^3.9.0", optional = true }
 scikit-learn = { version = "^1.5.0", optional = true }
 catboost = { version = "^1.2.5", optional = true }
 umap-learn = { version = "^0.5.6", optional = true }
-# dl
+# image
+scikit-image = { version = "^0.22.0", optional = true }
+opencv-python = { version = "^4.8.1.78", optional = true }
+pillow = { version = "^10.3.0", optional = true }
+# torch
 torch = { version = "^2.3.0", optional = true }
 torchvision = { version = "^0.18.0", optional = true }
+torcheval = { version = "^0.0.7", optional = true }
+torchaudio = { version = "^2.3.0", optional = true }
+lightning = { version = "^2.3.0", optional = true }
+# hf
 transformers = { version = "^4.41.2", optional = true }
 datasets = { version = "^2.20.0", optional = true }
 evaluate = { version = "^0.4.2", optional = true }
 accelerate = { version = "^0.31.0", optional = true }
-torcheval = { version = "^0.0.7", optional = true }
-torchaudio = { version = "^2.3.0", optional = true }
-lightning = { version = "^2.3.0", optional = true }
-opencv-python = { version = "^4.10.0.82", optional = true }
-pillow = { version = "^10.3.0", optional = true }
 # parse
 beautifulsoup4 = { version = "^4.12.3", optional = true }
 fake-useragent = { version = "^1.5.1", optional = true }
@@ -56,7 +59,6 @@ onnxscript = { version = "^0.1.0.dev20240617", optional = true }
 onnxruntime = { version = "^1.18.0", optional = true }
 onnx = { version = "^1.16.1", optional = true }
 skl2onnx = { version = "^1.17.0", optional = true }
-fastapi = "0.111.0"
 
 [tool.poetry.extras]
 vis = [
@@ -68,18 +70,24 @@ ml = [
   "catboost",
   "umap-learn",
 ]
-dl = [
+image = [
+  "scikit-image",
+  "opencv-python",
+  "pillow",
+  "albumentations", # to-do add albumenations, when its ready to numpy 2.0
+]
+torch = [
   "torch",
   "torchvision",
+  "torcheval",
+  "torchaudio",
+  "lightning",
+]
+hf = [
   "transformers",
   "datasets",
   "evaluate",
   "accelerate",
-  "torcheval",
-  "torchaudio",
-  "lightning",
-  "opencv-python",
-  "pillow",
 ]
 parse = [
   "beautifulsoup4",
@@ -103,7 +111,7 @@ onnx = [
 # do not add DVC to poetry, it is too slow
 # linting and formatting
 pre-commit = "^3.7.1"
-# for vscode
+# for vscode and helix
 isort = "^5.13.2"
 black = "^24.4.0"
 flake8 = "^7.1.0"
@@ -111,8 +119,12 @@ flake8-bugbear = "^24.4.21"
 flake8-simplify = "^0.21.0"
 flake8-pyproject = "^1.2.3"
 ruff = "^0.4.9"
-mypy = "^1.9.0"
+mypy = "^1.9.0"             # basedmypy? xd
 pylint = "^3.2.3"
+# useless libs finder
+deptry = "^0.16.1"
+
+[tool.poetry.group.stubs.dependencies]
 # stubs for mypy type checking and code completions
 typing-extensions = "^4.12.2"
 pandas-stubs = "^2.2.2.240603"
@@ -133,6 +145,11 @@ types-psutil = "^6.0.0.20240621"
 types-setuptools = "^70.0.0.20240524"
 types-six = "^1.16.21.20240513"
 types-tabulate = "^0.9.0.20240106"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.2.2"
+pytest-cov = "^5.0.0"
+pytest-asyncio = "^0.23.7"
 
 [tool.black]
 line-length = 90
