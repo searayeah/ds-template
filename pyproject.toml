@@ -56,7 +56,7 @@ onnxscript = { version = "^0.1.0.dev20240617", optional = true }
 onnxruntime = { version = "^1.18.0", optional = true }
 onnx = { version = "^1.16.1", optional = true }
 skl2onnx = { version = "^1.17.0", optional = true }
-fastapi = "0.110.3"
+fastapi = "0.111.0"
 
 [tool.poetry.extras]
 vis = [
@@ -129,7 +129,7 @@ types-colorama = "^0.4.15.20240311"
 types-decorator = "^5.1.8.20240310"
 types-jsonschema = "^4.22.0.20240610"
 types-protobuf = "^5.26.0.20240422"
-types-psutil = "^5.9.5.20240516"
+types-psutil = "^6.0.0.20240621"
 types-setuptools = "^70.0.0.20240524"
 types-six = "^1.16.21.20240513"
 types-tabulate = "^0.9.0.20240106"
