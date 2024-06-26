@@ -6106,4 +6106,4 @@ vis = ["matplotlib", "seaborn"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "1492b75987893f9970545e834dd72587fb0a8b34a6ce61bcbc46f5dfdfc97eab"
+content-hash = "fe4d7b624314800bfcd464d87473aba825b8dbb1bc99839f31ec3f91d33f526f"
