@@ -141,6 +141,7 @@ server = [
   "fastapi",
   "aiohttp",
 ]
+
 [tool.poetry.group.dev.dependencies]
 # do not add DVC to poetry, it is too slow
 # linting and formatting
