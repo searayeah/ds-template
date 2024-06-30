@@ -23,6 +23,8 @@ cd "$project_folder_name" &&
   rm -rf .git &&
   git init --initial-branch="main" &&
   git add -A &&
-  git commit -m "Initialized using ds-template"
+  git commit -m "Initialized using ds-template" &&
+  rm create_project.sh &&
+  rm init_project.sh
 
 echo "Created $project_name"
