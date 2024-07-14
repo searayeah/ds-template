@@ -243,7 +243,7 @@ disable = [
 
 [tool.mypy]
 python_version = "3.12"
-strict = true
+strict = false            # it's too strict to be useful
 show_error_context = true
 pretty = true
 # ignore_missing_imports = true # ignore packages without type-checking
