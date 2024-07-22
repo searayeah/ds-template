@@ -154,7 +154,7 @@ flake8-bugbear = "^24.4.21"
 flake8-simplify = "^0.21.0"
 flake8-pyproject = "^1.2.3"
 ruff = "^0.5.4"
-mypy = "^1.11.0"             # basedmypy? xd
+mypy = "^1.11.0"            # basedmypy? xd
 pylint = "^3.2.6"
 # useless libs finder
 deptry = "^0.17.0"
