@@ -207,7 +207,7 @@ repos:
       - id: black
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 7.1.0
+    rev: 7.1.1
     hooks:
       - id: flake8
         additional_dependencies:
@@ -224,7 +224,7 @@ repos:
 
   # jupyter notebooks
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.8.5
+    rev: 1.8.7
     hooks:
       - id: nbqa-check-ast
       - id: nbqa-pyupgrade
@@ -244,7 +244,7 @@ repos:
 
   # pyproject.toml
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: 2.1.4
+    rev: 2.2.1
     hooks:
       - id: pyproject-fmt
         additional_dependencies: [tox>=4.9]
