@@ -66,7 +66,7 @@ onnx = { version = "^1.16.2", optional = true }
 skl2onnx = { version = "^1.17.0", optional = true }
 # nlp
 sentencepiece = { version = "^0.2.0", optional = true }
-nltk = { version = "^3.8.2", optional = true }
+nltk = { version = "^3.9.1", optional = true }
 pymorphy2 = { version = "^0.9.1", optional = true }
 pymystem3 = { version = "^0.2.0", optional = true }
 # ts
@@ -75,8 +75,8 @@ statsmodels = "^0.14.2"
 python-telegram-bot = { extras = [
   "job-queue",
 ], version = "^21.3", optional = true }
-fastapi = { version = "^0.112.0", optional = true }
-aiohttp = { version = "^3.10.3", optional = true }
+fastapi = { version = "^0.112.1", optional = true }
+aiohttp = { version = "^3.10.4", optional = true }
 
 [tool.poetry.extras]
 vis = [
@@ -153,7 +153,7 @@ flake8 = "^7.1.1"
 flake8-bugbear = "^24.4.21"
 flake8-simplify = "^0.21.0"
 flake8-pyproject = "^1.2.3"
-ruff = "^0.5.7"
+ruff = "^0.6.1"
 mypy = "^1.11.1"            # basedmypy? xd
 pylint = "^3.2.6"
 # useless libs finder
@@ -171,7 +171,7 @@ pandas-stubs = "^2.2.2.240807"
 types-pillow = "^10.2.0.20240520"
 types-beautifulsoup4 = "^4.12.0.20240511"
 types-tqdm = "^4.66.0.20240417"
-types-seaborn = "^0.13.2.20240804"
+types-seaborn = "^0.13.2.20240813"
 types-requests = "^2.32.0.20240712"
 types-pyyaml = "^6.0.12.20240808"
 types-regex = "^2024.7.24.20240726"
@@ -179,10 +179,10 @@ types-openpyxl = "^3.1.5.20240806"
 types-pygments = "^2.18.0.20240506"
 types-colorama = "^0.4.15.20240311"
 types-decorator = "^5.1.8.20240310"
-types-jsonschema = "^4.23.0.20240712"
+types-jsonschema = "^4.23.0.20240813"
 types-protobuf = "^5.26.0.20240422"
 types-psutil = "^6.0.0.20240621"
-types-setuptools = "^71.1.0.20240806"
+types-setuptools = "^71.1.0.20240818"
 types-six = "^1.16.21.20240513"
 types-tabulate = "^0.9.0.20240106"
 
