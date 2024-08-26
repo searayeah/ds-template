@@ -44,7 +44,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.29.1
+    rev: 0.29.2
     hooks:
       # - id: check-jsonschema
       #   files: ^.markdownlint.yaml$
@@ -121,7 +121,7 @@ repos:
 
   # shell, bash
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.8.0-1
+    rev: v3.9.0-1
     hooks:
       - id: shfmt
 
