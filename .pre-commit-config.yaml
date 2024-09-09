@@ -244,7 +244,7 @@ repos:
 
   # pyproject.toml
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: 2.2.1
+    rev: 2.2.3
     hooks:
       - id: pyproject-fmt
         additional_dependencies: [tox>=4.9]
