@@ -164,7 +164,7 @@ repos:
       - id: yamllint
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.1
+    rev: v1.7.2
     hooks:
       - id: actionlint
 
@@ -216,7 +216,7 @@ repos:
           - flake8-pyproject
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.9
+    rev: 1.7.10
     hooks:
       - id: bandit
         args: [-c, pyproject.toml]
@@ -244,7 +244,7 @@ repos:
 
   # pyproject.toml
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: 2.2.3
+    rev: 2.2.4
     hooks:
       - id: pyproject-fmt
         additional_dependencies: [tox>=4.9]
