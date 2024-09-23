@@ -18,7 +18,7 @@ readme = "README.md"
 python = "^3.12"
 ipywidgets = "^8.1.5"
 jupyterlab = "^4.2.5"
-pandas = "^2.2.2"
+pandas = "^2.2.3"
 openpyxl = "^3.1.4"      # for xlsx
 numpy = "^2.1.1"
 scipy = "^1.14.1"
@@ -55,12 +55,12 @@ beautifulsoup4 = { version = "^4.12.3", optional = true }
 fake-useragent = { version = "^1.5.1", optional = true }
 requests = { version = "^2.32.3", optional = true }
 # log
-wandb = { version = "^0.18.0", optional = true }
+wandb = { version = "^0.18.1", optional = true }
 loguru = { version = "^0.7.2", optional = true }
 hydra-core = { version = "^1.3.2", optional = true }
 omegaconf = { version = "^2.3.0", optional = true }
 # onnx
-onnxscript = { version = "^0.1.0.dev20240916", optional = true }
+onnxscript = { version = "^0.1.0.dev20240923", optional = true }
 onnxruntime = { version = "^1.19.2", optional = true }
 onnx = { version = "^1.16.2", optional = true }
 skl2onnx = { version = "^1.17.0", optional = true }
@@ -70,12 +70,12 @@ nltk = { version = "^3.9.1", optional = true }
 pymorphy2 = { version = "^0.9.1", optional = true }
 pymystem3 = { version = "^0.2.0", optional = true }
 # ts
-statsmodels = "^0.14.2"
+statsmodels = "^0.14.3"
 # server
 python-telegram-bot = { extras = [
   "job-queue",
 ], version = "^21.3", optional = true }
-fastapi = { version = "^0.114.2", optional = true }
+fastapi = { version = "^0.115.0", optional = true }
 aiohttp = { version = "^3.10.5", optional = true }
 
 [tool.poetry.extras]
@@ -153,9 +153,9 @@ flake8 = "^7.1.1"
 flake8-bugbear = "^24.8.19"
 flake8-simplify = "^0.21.0"
 flake8-pyproject = "^1.2.3"
-ruff = "^0.6.5"
+ruff = "^0.6.7"
 mypy = "^1.11.2"            # basedmypy? xd
-pylint = "^3.2.7"
+pylint = "^3.3.0"
 # useless libs finder
 deptry = "^0.20.0"
 
@@ -173,16 +173,16 @@ types-beautifulsoup4 = "^4.12.0.20240907"
 types-tqdm = "^4.66.0.20240417"
 types-seaborn = "^0.13.2.20240813"
 types-requests = "^2.32.0.20240914"
-types-pyyaml = "^6.0.12.20240808"
+types-pyyaml = "^6.0.12.20240917"
 types-regex = "^2024.9.11.20240912"
-types-openpyxl = "^3.1.5.20240822"
+types-openpyxl = "^3.1.5.20240918"
 types-pygments = "^2.18.0.20240506"
 types-colorama = "^0.4.15.20240311"
 types-decorator = "^5.1.8.20240310"
 types-jsonschema = "^4.23.0.20240813"
-types-protobuf = "^5.27.0.20240907"
+types-protobuf = "^5.27.0.20240920"
 types-psutil = "^6.0.0.20240901"
-types-setuptools = "^74.1.0.20240907"
+types-setuptools = "^75.1.0.20240917"
 types-six = "^1.16.21.20240513"
 types-tabulate = "^0.9.0.20240106"
 
