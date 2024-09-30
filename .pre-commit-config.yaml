@@ -44,7 +44,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.29.2
+    rev: 0.29.3
     hooks:
       # - id: check-jsonschema
       #   files: ^.markdownlint.yaml$
@@ -108,7 +108,7 @@ repos:
 
   # tokens and secrets
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.19.2
+    rev: v8.19.3
     hooks:
       - id: gitleaks
 
@@ -146,7 +146,7 @@ repos:
   # markdown
   # this does not format file, it only fixes some errors
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.41.0
+    rev: v0.42.0
     hooks:
       - id: markdownlint
       - id: markdownlint-fix
@@ -164,7 +164,7 @@ repos:
       - id: yamllint
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.2
+    rev: v1.7.3
     hooks:
       - id: actionlint
 
@@ -250,7 +250,7 @@ repos:
         additional_dependencies: [tox>=4.9]
 
   - repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.19
+    rev: v0.20.2
     hooks:
       - id: validate-pyproject
         additional_dependencies: ["validate-pyproject-schema-store[all]"]
