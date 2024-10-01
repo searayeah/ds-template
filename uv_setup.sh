@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Prompt for project name (optional)
-read -p "Enter the project name (leave blank - default to parent folder name): " project_folder_name
+read -r -p "Enter the project name (leave blank - default to parent folder name): " project_folder_name
 
 if [[ -z "$project_folder_name" ]]; then
   project_folder_name=$(basename "$PWD")
@@ -31,7 +31,7 @@ fi
 echo "Readme choice: $readme_choice"
 
 # Prompt for Python version (optional)
-read -p "Enter the Python version to use (leave blank if 3.9): " python_version
+read -r -p "Enter the Python version to use (leave blank if 3.9): " python_version
 
 if [[ -z "$python_version" ]]; then
   python_version="3.9"
@@ -69,7 +69,7 @@ cmd="$cmd --python-preference \"only-managed\""
 
 # Execute the constructed command
 echo "Executing: $cmd"
-eval $cmd
+eval "$cmd"
 
 mkdir -p "$project_python_name"
 touch "$project_python_name/__init__.py"
@@ -100,14 +100,14 @@ if [[ "$vcs_choice" == "no" && -f ".gitignore" ]]; then
   cat ds-template/.gitignore >>.gitignore
 fi
 
-read -p "Github actions (Y or n): " github_actions
+read -r -p "Github actions (Y or n): " github_actions
 
 if [[ "$github_actions" == "Y" || "$github_actions" == "y" ]]; then
   cp -r ds-template/.github .
 fi
 
 if [[ -d ".git" && ! -d ".dvc" ]]; then
-  read -p "Initialize dvc (Y or n): " dvc_init
+  read -r -p "Initialize dvc (Y or n): " dvc_init
   if [[ "$dvc_init" == "Y" || "$dvc_init" == "y" ]]; then
     dvc init
     cat ds-template/.dvc/config >>.dvc/config
@@ -133,11 +133,10 @@ remove_hook() {
   echo "$hook_name removed."
 }
 
-hook_info=$(grep -oP '(?<=- repo: https://github.com/)\S+' .pre-commit-config.yaml)
-hooks=($hook_info)
+mapfile -t hooks < <(grep -oP '(?<=- repo: https://github.com/)\S+' .pre-commit-config.yaml)
 
 for hook in "${hooks[@]}"; do
-  read -p "Do you want to keep $hook? (Y or n): " choice
+  read -r -p "Do you want to keep $hook? (Y or n): " choice
   choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')
   if [[ "$choice" == "n" || "$choice" == "no" ]]; then
     remove_hook "$hook"
@@ -154,7 +153,7 @@ for hook in "${hooks[@]}"; do
   fi
 
   if [[ ("$choice" == "y" || "$choice" == "yes") && $hook == "nbQA-dev/nbQA" ]]; then
-    read -p "Do you want to keep nbqa/flake8? (Y or n): " nbqa_choice
+    read -r -p "Do you want to keep nbqa/flake8? (Y or n): " nbqa_choice
     nbqa_choice=$(echo "$nbqa_choice" | tr '[:upper:]' '[:lower:]')
     if [[ "$nbqa_choice" == "n" || "$nbqa_choice" == "no" ]]; then
       echo "Removing flake8 from nbqa"
@@ -166,18 +165,18 @@ done
 
 echo "Replace python to $python_version in .pre-commit-config.yaml"
 sed -i "s/python: python[0-9]\+\.[0-9]\+/python: python${python_version}/" .pre-commit-config.yaml
-sed -i "s/--py[0-9]\+\.[0-9]\+/--py${python_version_without_dot}/g" .pre-commit-config.yaml
+sed -i "s/--py[0-9]\+/--py${python_version_without_dot}/g" .pre-commit-config.yaml
 
 uv run pre-commit install
 
 echo "Copying linters and formatters configuration"
-awk '/\[tool.black\]/ {found=1} found' ds-template/pyproject.toml >pyproject.toml
+awk '/\[tool.black\]/ {found=1} found' ds-template/pyproject.toml >>pyproject.toml
 
 echo "Setting up right python version in formatter and linters configuration"
 
-sed -i "s/target-version = \[\"py[0-9]*\.[0-9]*\"\]/target-version = [\"py${python_version_without_dot}\"]/g" .pre-commit-config.yaml
-sed -i "s/py-version = \"[0-9]*\.[0-9]*\"/py-version = \"$python_version\"/g" .pre-commit-config.yaml
-sed -i "s/python_version = \"[0-9]*\.[0-9]*\"/python_version = \"$python_version\"/g" .pre-commit-config.yaml
-sed -i "s/target-version = \"py[0-9]*\.[0-9]*\"/target-version = \"py${python_version_without_dot}\"/g" .pre-commit-config.yaml
+sed -i "s/target-version *= *\[\"py[0-9]*\"\]/target-version = [\"py${python_version_without_dot}\"]/g" pyproject.toml
+sed -i "s/py-version *= *\"[0-9]*\.[0-9]*\"/py-version = \"$python_version\"/g" pyproject.toml
+sed -i "s/python_version *= *\"[0-9]*\.[0-9]*\"/python_version = \"$python_version\"/g" pyproject.toml
+sed -i "s/target-version *= *\"py[0-9]*\"/target-version = \"py${python_version_without_dot}\"/g" pyproject.toml
 
 rm -f -r ds-template

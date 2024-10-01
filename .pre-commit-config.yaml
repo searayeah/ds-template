@@ -1,5 +1,5 @@
 default_language_version:
-  python: python3.12
+  python: python3.9
 
 repos:
   # all-in-one
@@ -178,7 +178,7 @@ repos:
     rev: v3.17.0
     hooks:
       - id: pyupgrade
-        args: [--py312-plus] # does not get values from pyproject.toml
+        args: [--py39-plus] # does not get values from pyproject.toml
 
   - repo: https://github.com/PyCQA/autoflake
     rev: v2.3.1
@@ -228,7 +228,7 @@ repos:
     hooks:
       - id: nbqa-check-ast
       - id: nbqa-pyupgrade
-        args: [--py312-plus] # pyupgrade do not support pyproject.toml
+        args: [--py39-plus] # pyupgrade do not support pyproject.toml
       - id: nbqa-isort
       - id: nbqa-black
       - id: nbqa-flake8
