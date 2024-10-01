@@ -162,7 +162,7 @@ types-tabulate = "^0.9.0.20240106"
 
 [tool.black]
 line-length = 90
-target-version = ["py39"]
+target-version = ["py312"]
 # skip-magic-trailing-comma = true
 
 [tool.isort]
@@ -185,7 +185,7 @@ max-line-length = 90
 extend-ignore = ["E203"] # Whitespace before ':' for black compatability
 
 [tool.pylint]
-py-version = "3.9"
+py-version = "3.12"
 max-line-length = 90
 disable = [
   "C0116", # documentation
@@ -194,16 +194,15 @@ disable = [
 ]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.12"
 strict = false            # it's too strict to be useful
 show_error_context = true
 pretty = true
 # ignore_missing_imports = true # ignore packages without type-checking
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py312"
 line-length = 90
-extend-include = ["*.ipynb"]
 
 lint.select = ["ALL"]
 lint.ignore = [
