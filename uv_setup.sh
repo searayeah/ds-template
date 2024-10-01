@@ -71,8 +71,10 @@ cmd="$cmd --python-preference \"only-managed\""
 echo "Executing: $cmd"
 eval "$cmd"
 
-mkdir -p "$project_python_name"
-touch "$project_python_name/__init__.py"
+if [[ ! -d $project_python_name ]]; then
+  mkdir -p "$project_python_name"
+  touch "$project_python_name/__init__.py"
+fi
 
 if [[ -f "hello.py" ]]; then
   echo "Removing hello.py"
