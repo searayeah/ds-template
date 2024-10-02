@@ -85,7 +85,7 @@ uv add pre-commit isort black flake8 flake8-bugbear flake8-simplify flake8-pypro
 
 uv add typing-extensions pandas-stubs types-pillow types-beautifulsoup4 types-tqdm types-seaborn types-requests types-pyyaml types-regex types-openpyxl types-pygments types-colorama types-decorator types-jsonschema types-protobuf types-psutil types-setuptools types-six types-tabulate --dev --raw-sources
 
-uv add numpy pandas matplotlib jupyterlab ipywidgets
+uv add numpy pandas matplotlib jupyterlab ipywidgets --raw-sources
 
 git clone https://github.com/searayeah/ds-template.git
 
@@ -160,6 +160,8 @@ for hook in "${hooks[@]}"; do
     if [[ $nbqa_choice == "n" || $nbqa_choice == "no" ]]; then
       echo "Removing flake8 from nbqa"
       sed -i '/^\s*- id: nbqa-flake8/,/^$/d' .pre-commit-config.yaml
+      # shellcheck disable=SC1003
+      sed -i '/^[[:space:]]*- id: nbqa-black/a\\' .pre-commit-config.yaml
     fi
   fi
 
