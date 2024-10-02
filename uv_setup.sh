@@ -81,9 +81,9 @@ if [[ -f "hello.py" ]]; then
   rm "hello.py"
 fi
 
-uv add pre-commit isort black flake8 flake8-bugbear flake8-simplify flake8-pyproject ruff mypy pylint deptry "nbqa[toolchain]" --dev
+uv add pre-commit isort black flake8 flake8-bugbear flake8-simplify flake8-pyproject ruff mypy pylint deptry "nbqa[toolchain]" --dev --raw-sources
 
-uv add typing-extensions pandas-stubs types-pillow types-beautifulsoup4 types-tqdm types-seaborn types-requests types-pyyaml types-regex types-openpyxl types-pygments types-colorama types-decorator types-jsonschema types-protobuf types-psutil types-setuptools types-six types-tabulate --dev
+uv add typing-extensions pandas-stubs types-pillow types-beautifulsoup4 types-tqdm types-seaborn types-requests types-pyyaml types-regex types-openpyxl types-pygments types-colorama types-decorator types-jsonschema types-protobuf types-psutil types-setuptools types-six types-tabulate --dev --raw-sources
 
 uv add numpy pandas matplotlib jupyterlab ipywidgets
 
