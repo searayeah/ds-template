@@ -97,7 +97,7 @@ if [[ $vcs_choice == "git" && -f ".gitignore" ]]; then
   cp ds-template/.gitignore .
 fi
 
-if [[ $vcs_choice == "no" && -f ".gitignore" ]]; then
+if [[ $vcs_choice == "none" && -f ".gitignore" ]]; then
   echo "Concatting current .gitignore and ds-template .gitignore"
   cat ds-template/.gitignore >>.gitignore
 fi
