@@ -196,6 +196,13 @@ repos:
     hooks:
       - id: yesqa
 
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        types_or: [python, pyi, jupyter]
+        args: [--fix-only]
+
   - repo: https://github.com/PyCQA/isort
     rev: 5.13.2
     hooks:
@@ -272,12 +279,3 @@ repos:
   #   hooks:
   #     - id: editorconfig-checker
   #       alias: ec
-
-  # - repo: https://github.com/astral-sh/ruff-pre-commit
-  #   rev: v0.1.9
-  #   hooks:
-  #     - id: ruff
-  #       types_or: [python, pyi, jupyter] # Added Jupyter support
-  #       args: [--fix]
-  #     - id: ruff-format
-  #       types_or: [python, pyi, jupyter]

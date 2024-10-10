@@ -204,8 +204,9 @@ pretty = true
 target-version = "py312"
 line-length = 90
 
-lint.select = ["ALL"]
-lint.ignore = [
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
   "ANN101",  # annotationg self in class methods, will be deprecated
   "ANN102",  # annotationg cls in class methods, will be deprecated
   "COM812",  # missing-trailing-comma
