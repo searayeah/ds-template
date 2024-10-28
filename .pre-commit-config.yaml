@@ -108,7 +108,7 @@ repos:
 
   # tokens and secrets
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.21.1
+    rev: v8.21.2
     hooks:
       - id: gitleaks
 
@@ -175,7 +175,7 @@ repos:
 
   # python
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.18.0
+    rev: v3.19.0
     hooks:
       - id: pyupgrade
         args: [--py312-plus] # does not get values from pyproject.toml
@@ -197,7 +197,7 @@ repos:
       - id: yesqa
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.7.0
+    rev: v0.7.1
     hooks:
       - id: ruff
         types_or: [python, pyi, jupyter]
@@ -257,7 +257,7 @@ repos:
   #       additional_dependencies: [tox>=4.9]
 
   - repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.21
+    rev: v0.22
     hooks:
       - id: validate-pyproject
         additional_dependencies: ["validate-pyproject-schema-store[all]"]
