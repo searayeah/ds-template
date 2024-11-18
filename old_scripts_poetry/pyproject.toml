@@ -72,7 +72,7 @@ python-telegram-bot = { extras = [
   "job-queue",
 ], version = "^21.3", optional = true }
 fastapi = { version = "^0.115.4", optional = true }
-aiohttp = { version = "^3.10.10", optional = true }
+aiohttp = { version = "^3.10.11", optional = true }
 
 [tool.poetry.extras]
 vis = ["seaborn", "matplotlib", "plotly"]
