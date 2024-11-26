@@ -1,0 +1,75 @@
+# [tool.bandit]
+# exclude_dirs = ["tests"]
+
+# [tool.bandit.assert_used]
+# skips = [
+#   '*_test.py',
+#   'test_*.py',
+# ]
+
+# [tool.yamlfix]
+# comments_min_spaces_from_content = 1
+# explicit_start = false
+# none_representation = "null"
+# quote_representation = "\""
+# section_whitelines = 1
+# whitelines = 1
+# preserve_quotes = true               # unless quote_representation bug is fixed
+
+[tool.black]
+line-length = 90
+target-version = ["py312"]
+# skip-magic-trailing-comma = true
+
+[tool.isort]
+profile = "black"
+line_length = 90
+float_to_top = true
+known_third_party = ["wandb"]
+
+[tool.autoflake]
+expand-star-imports = true
+remove-all-unused-imports = true
+ignore-init-module-imports = true
+remove-duplicate-keys = true
+remove-unused-variables = true
+recursive = true
+in-place = true
+
+[tool.flake8]
+max-line-length = 90
+extend-ignore = ["E203"] # Whitespace before ':' for black compatability
+
+[tool.pylint]
+py-version = "3.12"
+max-line-length = 90
+disable = [
+  "C0116", # documentation
+  "C0114", # documentation
+  "C0115", # documentation
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = false            # it's too strict to be useful
+show_error_context = true
+pretty = true
+# ignore_missing_imports = true # ignore packages without type-checking
+
+[tool.ruff]
+target-version = "py312"
+line-length = 90
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "ANN101",  # annotationg self in class methods, will be deprecated
+  "ANN102",  # annotationg cls in class methods, will be deprecated
+  "COM812",  # missing-trailing-comma
+  "D",       # documentation
+  "FA100",   # future-annotations
+  "NPY002",  # numpy random stuff
+  "PLR0913", # too many init arguments
+  "RUF012",  # mutable class attributes type checking
+  "T201",    # print statements
+]
