@@ -13,6 +13,7 @@ repos:
       - id: check-case-conflict
       - id: check-docstring-first
       - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
       - id: check-json
       - id: check-merge-conflict
       - id: check-shebang-scripts-are-executable
@@ -81,14 +82,17 @@ repos:
       - id: check-bamboo-spec
       - id: check-bitbucket-pipelines
       - id: check-buildkite
+      - id: check-circle-ci
       - id: check-cloudbuild
       - id: check-dependabot
       - id: check-drone-ci
       - id: check-github-actions
       - id: check-github-workflows
       - id: check-gitlab-ci
+      - id: check-mergify
       - id: check-readthedocs
       - id: check-renovate
+      - id: check-taskfile
       - id: check-travis
       - id: check-woodpecker-ci
 

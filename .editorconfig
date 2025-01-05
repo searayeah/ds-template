@@ -12,3 +12,6 @@ max_line_length = 90
 
 [*.{py,pyi,ipynb}]
 indent_size = 4
+
+[Makefile]
+indent_style = tab
