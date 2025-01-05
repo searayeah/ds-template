@@ -1,12 +1,12 @@
 [build-system]
 build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core"]
+requires = [ "poetry-core" ]
 
 [tool.poetry]
 name = "ds-template"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = [ "Your Name <you@example.com>" ]
 license = "MIT"
 readme = "README.md"
 
@@ -75,7 +75,7 @@ fastapi = { version = "^0.115.4", optional = true }
 aiohttp = { version = "^3.10.10", optional = true }
 
 [tool.poetry.extras]
-vis = ["seaborn", "matplotlib", "plotly"]
+vis = [ "seaborn", "matplotlib", "plotly" ]
 ml = [
   "scikit-learn",
   "catboost",
@@ -89,14 +89,14 @@ image = [
   "pillow",
   "albumentations", # to-do add albumenations, when its ready to numpy 2.0
 ]
-torch = ["torch", "torchvision", "torcheval", "torchaudio", "lightning"]
-hf = ["transformers", "datasets", "evaluate", "accelerate"]
-parse = ["beautifulsoup4", "fake-useragent", "requests"]
-log = ["wandb", "loguru", "hydra-core", "omegaconf"]
-onnx = ["onnxscript", "onnxruntime", "onnx", "skl2onnx"]
-nlp = ["sentencepiece", "nltk", "pymorphy2", "pymystem3"]
-ts = ["statsmodels"]
-server = ["python-telegram-bot", "fastapi", "aiohttp"]
+torch = [ "torch", "torchvision", "torcheval", "torchaudio", "lightning" ]
+hf = [ "transformers", "datasets", "evaluate", "accelerate" ]
+parse = [ "beautifulsoup4", "fake-useragent", "requests" ]
+log = [ "wandb", "loguru", "hydra-core", "omegaconf" ]
+onnx = [ "onnxscript", "onnxruntime", "onnx", "skl2onnx" ]
+nlp = [ "sentencepiece", "nltk", "pymorphy2", "pymystem3" ]
+ts = [ "statsmodels" ]
+server = [ "python-telegram-bot", "fastapi", "aiohttp" ]
 
 [tool.poetry.group.dev.dependencies]
 # do not add DVC to poetry, it is too slow
@@ -110,7 +110,7 @@ flake8-bugbear = "^24.10.31"
 flake8-simplify = "^0.21.0"
 flake8-pyproject = "^1.2.3"
 ruff = "^0.7.2"
-mypy = "^1.13.0"            # basedmypy? xd
+mypy = "^1.13.0"             # basedmypy? xd
 pylint = "^3.3.1"
 # useless libs finder
 deptry = "^0.20.0"
@@ -162,27 +162,35 @@ types-tabulate = "^0.9.0.20240106"
 
 [tool.black]
 line-length = 90
-target-version = ["py312"]
+target-version = [ "py312" ]
 # skip-magic-trailing-comma = true
+
+[tool.ruff]
+target-version = "py312"
+line-length = 90
+
+lint.select = [ "ALL" ]
+lint.ignore = [
+  "ANN101",  # annotationg self in class methods, will be deprecated
+  "ANN102",  # annotationg cls in class methods, will be deprecated
+  "COM812",  # missing-trailing-comma
+  "D",       # documentation
+  "FA100",   # future-annotations
+  "NPY002",  # numpy random stuff
+  "PLR0913", # too many init arguments
+  "RUF012",  # mutable class attributes type checking
+  "T201",    # print statements
+]
 
 [tool.isort]
 profile = "black"
 line_length = 90
 float_to_top = true
-known_third_party = ["wandb"]
-
-[tool.autoflake]
-expand-star-imports = true
-remove-all-unused-imports = true
-ignore-init-module-imports = true
-remove-duplicate-keys = true
-remove-unused-variables = true
-recursive = true
-in-place = true
+known_third_party = [ "wandb" ]
 
 [tool.flake8]
 max-line-length = 90
-extend-ignore = ["E203"] # Whitespace before ':' for black compatability
+extend-ignore = [ "E203" ] # Whitespace before ':' for black compatability
 
 [tool.pylint]
 py-version = "3.12"
@@ -200,20 +208,11 @@ show_error_context = true
 pretty = true
 # ignore_missing_imports = true # ignore packages without type-checking
 
-[tool.ruff]
-target-version = "py312"
-line-length = 90
-
-[tool.ruff.lint]
-select = ["ALL"]
-ignore = [
-  "ANN101",  # annotationg self in class methods, will be deprecated
-  "ANN102",  # annotationg cls in class methods, will be deprecated
-  "COM812",  # missing-trailing-comma
-  "D",       # documentation
-  "FA100",   # future-annotations
-  "NPY002",  # numpy random stuff
-  "PLR0913", # too many init arguments
-  "RUF012",  # mutable class attributes type checking
-  "T201",    # print statements
-]
+[tool.autoflake]
+expand-star-imports = true
+remove-all-unused-imports = true
+ignore-init-module-imports = true
+remove-duplicate-keys = true
+remove-unused-variables = true
+recursive = true
+in-place = true
