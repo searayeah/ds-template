@@ -31,10 +31,10 @@ fi
 echo "Readme choice: $readme_choice"
 
 # Prompt for Python version (optional)
-read -r -p "Enter the Python version to use (leave blank if 3.9): " python_version
+read -r -p "Enter the Python version to use (leave blank if 3.12): " python_version
 
 if [[ -z $python_version ]]; then
-  python_version="3.9"
+  python_version="3.12"
 fi
 
 python_version_without_dot="${python_version//./}"
@@ -85,7 +85,8 @@ uv add pre-commit isort "bandit[toml]" black flake8 flake8-bugbear flake8-simpli
 
 uv add typing-extensions pandas-stubs types-pillow types-beautifulsoup4 types-tqdm types-seaborn types-requests types-pyyaml types-regex types-openpyxl types-pygments types-colorama types-decorator types-jsonschema types-protobuf types-psutil types-setuptools types-six types-tabulate --dev --raw-sources
 
-uv add numpy pandas matplotlib jupyterlab ipywidgets --raw-sources
+# https://pypi.org/project/jupyter/
+uv add numpy pandas matplotlib jupyter --raw-sources
 
 git clone https://github.com/searayeah/ds-template.git
 
