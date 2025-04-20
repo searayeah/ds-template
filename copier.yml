@@ -1,23 +1,42 @@
 # use_pre_commit:
 #     type: bool
 #     help: Do you want to use pre-commit?
-#     default: false
+#     default: true
 
-linters_formatters:
+# use_dvc:
+#     type: bool
+#     help: Do you need DVC?
+
+# project_name:
+#   type: str
+#   help: What is the name of the project?
+
+python_version:
   type: str
-  help: What linters, formatters  to use?
-  multiselect: true
-  message: "What pre-commit hooks do you want?"
-  choices:
-    - pre-commit-hooks
-    - check-jsonschema
-    - pygrep-hooks
-    - gitleaks
-    - language-formatters-pre-commit-hooks
-    - pre-commit-shfmt
-    - shellcheck-py
-    - mirrors-prettier
-    - markdownlint-cli
-    - mdformat
-    - yamlfix
-    - yamllint
+  help: What python version to use?
+# linters_formatters:
+#   type: str
+#   help: What linters, formatters  to use?
+#   multiselect: true
+#   message: "What pre-commit hooks do you want?"
+#   choices:
+#     - pre-commit-hooks
+#     - check-jsonschema
+#     - pygrep-hooks
+#     - gitleaks
+#     - language-formatters-pre-commit-hooks
+#     - pre-commit-shfmt
+#     - shellcheck-py
+#     - mirrors-prettier
+#     - markdownlint-cli
+#     - mdformat
+#     - yamlfix
+#     - yamllint
+
+_tasks:
+  - command: uv init
+    when: "{{ _copier_operation == 'copy' }}"
+  - toml add_section --toml-path pyproject.toml tool.poetry
+  - toml set --toml-path pyproject.toml tool.poetry.version 0.3.0
+  # - command: dvc init
+  #   when:

@@ -2,8 +2,50 @@ default_language_version:
   python: python3.12
 
 repos:
-
-  
+  {% if 'pre-commit-hooks' in linters_formatters %}
+  # all-in-one
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=5000]
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: check-yaml
+      - id: debug-statements
+      - id: destroyed-symlinks
+      - id: detect-aws-credentials
+        args: [--allow-missing-credentials]
+      - id: detect-private-key
+      # - id: double-quote-string-fixer
+      - id: end-of-file-fixer
+      # - id: file-contents-sorter
+      - id: fix-byte-order-marker
+      - id: fix-encoding-pragma
+        args: [--remove]
+      - id: forbid-new-submodules
+      - id: forbid-submodules
+      - id: mixed-line-ending
+      - id: name-tests-test
+      # - id: no-commit-to-branch
+      # - id: pretty-format-json
+      #   args: [--autofix, --no-ensure-ascii, --no-sort-keys]
+      - id: requirements-txt-fixer
+      # - id: sort-simple-yaml
+      - id: trailing-whitespace
+  {% endif %}
+  {% if 'check-jsonschema' in linters_formatters %}
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.30.0
     hooks:
@@ -56,7 +98,8 @@ repos:
       - id: check-taskfile
       - id: check-travis
       - id: check-woodpecker-ci
-
+  {% endif %}
+  {% if 'pygrep-hooks' in linters_formatters %}
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.10.0
     hooks:
@@ -70,44 +113,48 @@ repos:
       - id: rst-directive-colons
       - id: rst-inline-touching-normal
       - id: text-unicode-replacement-char
-
+  {% endif %}
+  {% if 'gitleaks' in linters_formatters %}
   # tokens and secrets
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.22.1
     hooks:
       - id: gitleaks
-
+  {% endif %}
+  {% if 'ini' in linters_formatters %}
   # ini
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: v2.14.0
     hooks:
       - id: pretty-format-ini
         args: [--autofix]
-
+  {% endif %}
+  {% if 'shfmt' in linters_formatters %}
   # shell, bash
   - repo: https://github.com/scop/pre-commit-shfmt
     rev: v3.10.0-2
     hooks:
       - id: shfmt
-
+  {% if 'shellcheck' in linters_formatters %}
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.10.0.1
     hooks:
       - id: shellcheck
-
+  {% endif %}
+  {% if 'prettier' in linters_formatters %}
   # json, yaml, markdown
   # - repo: https://github.com/pre-commit/mirrors-prettier
   #   rev: v3.1.0
   #   hooks:
   #     - id: prettier
   #       types_or: [json, yaml, markdown]
-
   - repo: https://github.com/rbubley/mirrors-prettier
     rev: v3.4.2
     hooks:
       - id: prettier
         types_or: [json, yaml, markdown]
-
+  {% endif %}
+  {% if 'markdownlint' in linters_formatters %}
   # markdown
   # this does not format file, it only fixes some errors
   - repo: https://github.com/igorshubovych/markdownlint-cli
@@ -115,7 +162,8 @@ repos:
     hooks:
       - id: markdownlint
       - id: markdownlint-fix
-
+  {% endif %}
+  {% if 'mdformat' in linters_formatters %}
   - repo: https://github.com/hukkin/mdformat
     rev: 0.7.21
     hooks:
@@ -130,36 +178,41 @@ repos:
           - mdformat-ruff
           - mdformat-shfmt
           - mdformat-web
-
+  {% endif %}
+  {% if 'yamlfix' in linters_formatters %}
   # yaml
   # use prettier instead, but can run it once to remove quotes and other stuff
   - repo: https://github.com/lyz-code/yamlfix
     rev: 1.16.0
     hooks:
       - id: yamlfix
-
+  {% endif %}
+  {% if 'yamllint' in linters_formatters %}
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.35.1
     hooks:
       - id: yamllint
-
+  {% endif %}
+  {% if 'actionlint' in linters_formatters %}
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.6
     hooks:
       - id: actionlint
-
+  {% endif %}
+  {% if 'kube-linter' in linters_formatters %}
   - repo: https://github.com/stackrox/kube-linter
     rev: v0.6.8
     hooks:
       - id: kube-linter
-
+  {% endif %}
   # python
+  {% if 'pyupgrade' in linters_formatters %}
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.19.1
     hooks:
       - id: pyupgrade
         args: [--py312-plus] # does not get values from pyproject.toml
-
+  {% endif %}
   - repo: https://github.com/PyCQA/autoflake
     rev: v2.3.1
     hooks:
