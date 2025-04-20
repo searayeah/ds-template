@@ -2,7 +2,7 @@ default_language_version:
   python: python3.12
 
 repos:
-  {% if 'pre-commit-hooks' in linters_formatters %}
+  {% if 'pre-commit-hooks' in linters %}
   # all-in-one
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
@@ -45,7 +45,7 @@ repos:
       # - id: sort-simple-yaml
       - id: trailing-whitespace
   {% endif %}
-  {% if 'check-jsonschema' in linters_formatters %}
+  {% if 'check-jsonschema' in linters %}
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.30.0
     hooks:
@@ -99,7 +99,7 @@ repos:
       - id: check-travis
       - id: check-woodpecker-ci
   {% endif %}
-  {% if 'pygrep-hooks' in linters_formatters %}
+  {% if 'pygrep-hooks' in linters %}
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.10.0
     hooks:
@@ -114,14 +114,14 @@ repos:
       - id: rst-inline-touching-normal
       - id: text-unicode-replacement-char
   {% endif %}
-  {% if 'gitleaks' in linters_formatters %}
+  {% if 'gitleaks' in linters %}
   # tokens and secrets
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.22.1
     hooks:
       - id: gitleaks
   {% endif %}
-  {% if 'ini' in linters_formatters %}
+  {% if 'ini' in linters %}
   # ini
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: v2.14.0
@@ -129,32 +129,28 @@ repos:
       - id: pretty-format-ini
         args: [--autofix]
   {% endif %}
-  {% if 'shfmt' in linters_formatters %}
+  {% if 'shfmt' in linters %}
   # shell, bash
   - repo: https://github.com/scop/pre-commit-shfmt
     rev: v3.10.0-2
     hooks:
       - id: shfmt
-  {% if 'shellcheck' in linters_formatters %}
+  {% endif %}
+  {% if 'shellcheck' in linters %}
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.10.0.1
     hooks:
       - id: shellcheck
   {% endif %}
-  {% if 'prettier' in linters_formatters %}
+  {% if 'prettier' in linters %}
   # json, yaml, markdown
-  # - repo: https://github.com/pre-commit/mirrors-prettier
-  #   rev: v3.1.0
-  #   hooks:
-  #     - id: prettier
-  #       types_or: [json, yaml, markdown]
   - repo: https://github.com/rbubley/mirrors-prettier
     rev: v3.4.2
     hooks:
       - id: prettier
         types_or: [json, yaml, markdown]
   {% endif %}
-  {% if 'markdownlint' in linters_formatters %}
+  {% if 'markdownlint' in linters %}
   # markdown
   # this does not format file, it only fixes some errors
   - repo: https://github.com/igorshubovych/markdownlint-cli
@@ -163,7 +159,7 @@ repos:
       - id: markdownlint
       - id: markdownlint-fix
   {% endif %}
-  {% if 'mdformat' in linters_formatters %}
+  {% if 'mdformat' in linters %}
   - repo: https://github.com/hukkin/mdformat
     rev: 0.7.21
     hooks:
@@ -179,7 +175,7 @@ repos:
           - mdformat-shfmt
           - mdformat-web
   {% endif %}
-  {% if 'yamlfix' in linters_formatters %}
+  {% if 'yamlfix' in linters %}
   # yaml
   # use prettier instead, but can run it once to remove quotes and other stuff
   - repo: https://github.com/lyz-code/yamlfix
@@ -187,43 +183,46 @@ repos:
     hooks:
       - id: yamlfix
   {% endif %}
-  {% if 'yamllint' in linters_formatters %}
+  {% if 'yamllint' in linters %}
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.35.1
     hooks:
       - id: yamllint
   {% endif %}
-  {% if 'actionlint' in linters_formatters %}
+  {% if 'actionlint' in linters %}
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.6
     hooks:
       - id: actionlint
   {% endif %}
-  {% if 'kube-linter' in linters_formatters %}
+  {% if 'kube-linter' in linters %}
   - repo: https://github.com/stackrox/kube-linter
     rev: v0.6.8
     hooks:
       - id: kube-linter
   {% endif %}
   # python
-  {% if 'pyupgrade' in linters_formatters %}
+  {% if 'pyupgrade' in linters %}
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.19.1
     hooks:
       - id: pyupgrade
         args: [--py312-plus] # does not get values from pyproject.toml
   {% endif %}
+  {% if 'autoflake' in linters %}
   - repo: https://github.com/PyCQA/autoflake
     rev: v2.3.1
     hooks:
       - id: autoflake
-
+  {% endif %}
+  {% if 'auto-walrus' in linters %}
   - repo: https://github.com/MarcoGorelli/auto-walrus
     rev: 0.3.4
     hooks:
       - id: auto-walrus
         args: [--line-length, "90"]
-
+  {% endif %}
+  {% if 'yesqa' in linters %}
   - repo: https://github.com/asottile/yesqa
     rev: v1.5.0
     hooks:
@@ -232,24 +231,28 @@ repos:
           - flake8-bugbear
           - flake8-simplify
           - flake8-pyproject
-
+  {% endif %}
+  {% if 'ruff' in linters %}
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.6
     hooks:
       - id: ruff
         types_or: [python, pyi, jupyter]
         args: [--fix-only]
-
+  {% endif %}
+  {% if 'isort' in linters %}
   - repo: https://github.com/PyCQA/isort
     rev: 5.13.2
     hooks:
       - id: isort
-
+  {% endif %}
+  {% if 'black' in linters %}
   - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 24.10.0
     hooks:
       - id: black
-
+  {% endif %}
+  {% if 'flake8' in linters %}
   - repo: https://github.com/PyCQA/flake8
     rev: 7.1.1
     hooks:
@@ -258,34 +261,42 @@ repos:
           - flake8-bugbear
           - flake8-simplify
           - flake8-pyproject
-
+  {% endif %}
+  {% if 'bandit' in linters %}
   - repo: https://github.com/PyCQA/bandit
     rev: 1.8.0
     hooks:
       - id: bandit
         args: [-c, pyproject.toml]
         additional_dependencies: ["bandit[toml]"]
-
+  {% endif %}
+  {% if 'nbqa' in linters %}
   # jupyter notebooks
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.9.1
     hooks:
       - id: nbqa-check-ast
+      {% if 'pyupgrade' in linters %}
       - id: nbqa-pyupgrade
         args: [--py312-plus] # pyupgrade do not support pyproject.toml
+        {% endif %}
       - id: nbqa-isort
       - id: nbqa-black
+      {% if 'flake8' in linters %}
       - id: nbqa-flake8
         additional_dependencies:
           - flake8-bugbear
           - flake8-simplify
           - flake8-pyproject
-
+      {% endif %}
+  {% endif %}
+  {% if 'databooks' in linters %}
   - repo: https://github.com/datarootsio/databooks
     rev: 1.3.10
     hooks:
       - id: databooks-meta
-
+  {% endif %}
+  {% if 'nb-clean' in linters %}
   - repo: https://github.com/srstevenson/nb-clean
     rev: 4.0.1
     hooks:
@@ -294,59 +305,69 @@ repos:
           - --remove-empty-cells
           - --preserve-execution-counts
           - --preserve-notebook-metadata
-
+  {% endif %}
+  {% if 'taplo' in linters %}
   # pyproject.toml
   - repo: https://github.com/ComPWA/taplo-pre-commit
     rev: v0.9.3
     hooks:
       - id: taplo-format
       - id: taplo-lint
-
+  {% endif %}
+  {% if 'pyproject-fmt' in linters %}
   - repo: https://github.com/tox-dev/pyproject-fmt
     rev: v2.5.0
     hooks:
       - id: pyproject-fmt
-
+  {% endif %}
+  {% if 'validate-pyproject' in linters %}
   - repo: https://github.com/abravalheri/validate-pyproject
     rev: v0.23
     hooks:
       - id: validate-pyproject
         additional_dependencies:
           ["validate-pyproject[all]", "validate-pyproject-schema-store[all]"]
-
+  {% endif %}
+  {% if 'deptry' in linters %}
   - repo: https://github.com/fpgmaas/deptry.git
     rev: ""
     hooks:
       - id: deptry
-
+  {% endif %}
+  {% if 'hadolint' in linters %}
   # docker
   - repo: https://github.com/AleksaC/hadolint-py
     rev: v2.12.1b3
     hooks:
       - id: hadolint
-
+  {% endif %}
+  {% if 'checkmake' in linters %}
   # makefile
   - repo: https://github.com/mrtazz/checkmake.git
     rev: 0.2.2
     hooks:
       - id: checkmake
-
+  {% endif %}
+  {% if 'editorconfig' in linters %}
   # editorconfig
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 3.0.3
     hooks:
       - id: editorconfig-checker
         alias: ec
-
+  {% endif %}
+  {% if 'sqlfluff' in linters %}
   # SQL
   - repo: https://github.com/sqlfluff/sqlfluff
     rev: 3.3.0
     hooks:
       - id: sqlfluff-lint
       - id: sqlfluff-fix
-
+  {% endif %}
+  {% if 'dotenv' in linters %}
   # .env
   - repo: https://github.com/wemake-services/dotenv-linter
     rev: 0.2.0
     hooks:
       - id: dotenv-linter
+  {% endif %}

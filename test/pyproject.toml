@@ -1,0 +1,48 @@
+[project]
+name = "test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+
+# Linters Configuration
+
+
+[tool.black]
+line-length = 90
+target-version = ["py312"]
+# skip-magic-trailing-comma = true
+
+
+[tool.ruff]
+target-version = "py312"
+line-length = 900
+
+lint.select = ["ALL"]
+lint.ignore = [
+  "ANN101",  # annotationg self in class methods, will be deprecated
+  "ANN102",  # annotationg cls in class methods, will be deprecated
+  "COM812",  # missing-trailing-comma
+  "D",       # documentation
+  "FA100",   # future-annotations
+  "NPY002",  # numpy random stuff
+  "PLR0913", # too many init arguments
+  "RUF012",  # mutable class attributes type checking
+  "T201",    # print statements
+]
+
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+line_length = 90
+float_to_top = true
+known_third_party = ["wandb"]
+
+
+
+
+
+

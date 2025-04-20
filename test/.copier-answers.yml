@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 72b3656
+_src_path: .
+dvc: false
+linters:
+- pre-commit-hooks
+- ruff
+- isort
+- black
+- nbqa
+pre_commit: true
+pre_commit_ci: false
+project_name_input: seara
+python_version: '3.12'

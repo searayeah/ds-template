@@ -9,7 +9,7 @@ def check_and_init_pyproject():
         print(f"{PYPROJECT} exists!")
     else:
         print(f"{PYPROJECT} is missing!")
-        subprocess.run(["uv", "init"], check=True)
+        subprocess.run(["uv", "init", "--vcs", "git"], check=True)
 
 def append_linters_config():
     if not os.path.isfile(LINTERS):
@@ -24,6 +24,10 @@ def append_linters_config():
         pyproject_file.write(linters_content)
     print(f"Appended {LINTERS} to {PYPROJECT}")
 
+def delete_self():
+    os.remove(__file__)
+
 if __name__ == "__main__":
     check_and_init_pyproject()
     append_linters_config()
+    delete_self()
