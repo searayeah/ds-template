@@ -1,20 +1,23 @@
-# [tool.yamlfix]
-# comments_min_spaces_from_content = 1
-# explicit_start = false
-# none_representation = "null"
-# quote_representation = "\""
-# section_whitelines = 1
-# whitelines = 1
-# preserve_quotes = true               # unless quote_representation bug is fixed
-
+{% if 'yamlfix' in linters %}
+[tool.yamlfix]
+comments_min_spaces_from_content = 1
+explicit_start = false
+none_representation = "null"
+quote_representation = "\""
+section_whitelines = 1
+whitelines = 1
+preserve_quotes = true  # unless quote_representation bug is fixed
+{% endif %}
+{% if 'black' in linters %}
 [tool.black]
 line-length = 90
 target-version = ["py312"]
 # skip-magic-trailing-comma = true
-
+{% endif %}
+{% if 'ruff' in linters %}
 [tool.ruff]
 target-version = "py312"
-line-length = 90
+line-length = 900
 
 lint.select = ["ALL"]
 lint.ignore = [
@@ -28,19 +31,22 @@ lint.ignore = [
   "RUF012",  # mutable class attributes type checking
   "T201",    # print statements
 ]
-
+{% endif %}
+{% if 'isort' in linters %}
 [tool.isort]
 profile = "black"
 skip_gitignore = true
 line_length = 90
 float_to_top = true
 known_third_party = ["wandb"]
-
+{% endif %}
+{% if 'flake8' in linters %}
 [tool.flake8]
 max-line-length = 90
 extend-select = ["B950"]
 ignore = ["E203", "E701", "E704", "W503", "E501"] # For black compatability
-
+{% endif %}
+{% if 'pylint' in linters %}
 [tool.pylint]
 py-version = "3.12"
 max-line-length = 90
@@ -49,7 +55,8 @@ disable = [
   "C0114", # documentation
   "C0115", # documentation
 ]
-
+{% endif %}
+{% if 'mypy' in linters %}
 # mypy is not fun to use
 [tool.mypy]
 python_version = "3.12"
@@ -57,7 +64,8 @@ strict = false            # it's too strict to be useful
 show_error_context = true
 pretty = true
 # ignore_missing_imports = true # ignore packages without type-checking
-
+{% endif %}
+{% if 'autoflake' in linters %}
 [tool.autoflake]
 expand-star-imports = true
 remove-all-unused-imports = true
@@ -66,6 +74,8 @@ remove-duplicate-keys = true
 remove-unused-variables = true
 recursive = true
 in-place = true
-
+{% endif %}
+{% if 'bandit' in linters %}
 [tool.bandit]
 exclude_dirs = ["tests"]
+{% endif %}

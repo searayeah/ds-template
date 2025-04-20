@@ -1,0 +1,71 @@
+project_name_input:
+  type: str
+  help: Name of the project
+
+package_name:
+  type: str
+  default: "{{ project_name_input | replace('_', '-') | lower }}"
+  when: false
+
+python_version:
+  type: str
+  help: What python version to use?
+
+pre_commit:
+  type: bool
+  help: Do you want to use pre-commit?
+  default: true
+
+pre_commit_ci:
+  type: bool
+  help: Do you use pre-commit-ci?
+
+dvc:
+  type: bool
+  help: Do you need DVC?
+
+linters:
+  type: str
+  help: What linters, formatters  to use?
+  multiselect: true
+  message: "What pre-commit hooks do you want?"
+  choices:
+    - pre-commit-hooks
+    - check-jsonschema
+    - pygrep-hooks
+    - gitleaks
+    - ini
+    - shfmt
+    - shellcheck
+    - prettier
+    - markdownlint
+    - mdformat
+    - yamlfix
+    - yamllint
+    - actionlint
+    - kube-linter
+    - pyupgrade
+    - autoflake
+    - auto-walrus
+    - yesqa
+    - ruff
+    - isort
+    - black
+    - flake8
+    - bandit
+    - nbqa
+    - databooks
+    - nb-clean
+    - taplo
+    - pyproject-fmt
+    - validate-pyproject
+    - deptry
+    - hadolint
+    - checkmake
+    - editorconfig
+    - sqlfluff
+    - dotenv
+
+_tasks:
+  - ["{{ _copier_python }}", pyproject_setup.py]
+  # - ["{{ _copier_python }}", dvc_init.py]

@@ -266,3 +266,5 @@ multirun/
 # other
 node_modules/
 lightning_logs/
+data/
+models/
