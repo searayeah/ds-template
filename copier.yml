@@ -37,6 +37,6 @@ _tasks:
   - command: uv init
     when: "{{ _copier_operation == 'copy' }}"
   - toml add_section --toml-path pyproject.toml tool.poetry
-  - toml set --toml-path pyproject.toml tool.poetry.version 0.5.0
+  - toml set --toml-path pyproject.toml tool.poetry.version 0.7.0
   # - command: dvc init
   #   when:
