@@ -34,8 +34,13 @@ python_version:
 #     - yamllint
 
 _tasks:
-  - command: uv init
-    when: "{{ _copier_operation == 'copy' }}"
+  - |
+    if [ -f pyproject.toml ]; then
+      echo "pyproject.toml exists!"
+    else
+      echo "pyproject.toml is missing!"
+      uv init
+    fi
   - toml add_section --toml-path ./pyproject.toml tool.poetry
   - toml set --toml-path ./pyproject.toml tool.poetry.version 0.9.0
   # - command: dvc init
