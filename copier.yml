@@ -35,8 +35,7 @@ python_version:
 
 _tasks:
   - command: uv init
-  - ls -a
   - toml add_section --toml-path ./pyproject.toml tool.poetry
-  - toml set --toml-path ./pyproject.toml tool.poetry.version 0.7.0
+  - toml set --toml-path ./pyproject.toml tool.poetry.version 0.8.0
   # - command: dvc init
   #   when:
