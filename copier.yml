@@ -34,14 +34,15 @@ python_version:
 #     - yamllint
 
 _tasks:
-  - |
-    if [ -f pyproject.toml ]; then
-      echo "pyproject.toml exists!"
-    else
-      echo "pyproject.toml is missing!"
-      uv init
-    fi
-  - toml add_section --toml-path ./pyproject.toml tool.poetry
-  - toml set --toml-path ./pyproject.toml tool.poetry.version 0.11.0
+  - ["{{ _copier_python }}", pyproject_setup.py]
+  # - |
+  #   if [ -f pyproject.toml ]; then
+  #     echo "pyproject.toml exists!"
+  #   else
+  #     echo "pyproject.toml is missing!"
+  #     uv init
+  #   fi
+  # - toml add_section --toml-path ./pyproject.toml tool.poetry
+  # - toml set --toml-path ./pyproject.toml tool.poetry.version 0.11.0
   # - command: dvc init
   #   when:
