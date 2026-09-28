@@ -6,151 +6,139 @@ requires = [ "poetry-core" ]
 name = "ds-template"
 version = "0.1.0"
 description = ""
-authors = [ "Your Name <you@example.com>" ]
 license = "MIT"
+authors = [ "Your Name <you@example.com>" ]
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-ipywidgets = "^8.1.5"
-jupyterlab = "^4.3.0"
-pandas = "^2.2.3"
-openpyxl = "^3.1.4"      # for xlsx
-numpy = "^2.1.3"
-scipy = "^1.14.1"
-tqdm = "^4.66.6"
-pandarallel = "^1.6.5"
-python-dotenv = "^1.0.1"
-# vis
-seaborn = { version = "^0.13.2", optional = true }
-matplotlib = { version = "^3.9.2", optional = true }
-plotly = { version = "^5.24.1", optional = true }
-# ml
-scikit-learn = { version = "^1.5.2", optional = true }
-catboost = { version = "^1.2.5", optional = true }
-umap-learn = { version = "^0.5.7", optional = true }
-optuna = { version = "^4.0.0", optional = true }
-iterative-stratification = { version = "^0.1.9", optional = true }
-# image
-scikit-image = { version = "^0.24.0", optional = true }
-opencv-python = { version = "^4.8.1.78", optional = true }
-pillow = { version = "^11.0.0", optional = true }
-# torch
-torch = { version = "^2.3.0", optional = true }
-torchvision = { version = "^0.18.0", optional = true }
-torcheval = { version = "^0.0.7", optional = true }
-torchaudio = { version = "^2.3.0", optional = true }
-lightning = { version = "^2.4.0", optional = true }
-# hf
-transformers = { version = "^4.46.1", optional = true }
-datasets = { version = "^3.1.0", optional = true }
-evaluate = { version = "^0.4.3", optional = true }
-accelerate = { version = "^1.1.0", optional = true }
+dependencies.python = "^3.12"
+dependencies.accelerate = { version = "^1.1.0", optional = true }
+dependencies.aiohttp = { version = "^3.10.10", optional = true }
 # parse
-beautifulsoup4 = { version = "^4.12.3", optional = true }
-fake-useragent = { version = "^1.5.1", optional = true }
-requests = { version = "^2.32.3", optional = true }
-# log
-wandb = { version = "^0.18.5", optional = true }
-loguru = { version = "^0.7.2", optional = true }
-hydra-core = { version = "^1.3.2", optional = true }
-omegaconf = { version = "^2.3.0", optional = true }
+dependencies.beautifulsoup4 = { version = "^4.12.3", optional = true }
+dependencies.catboost = { version = "^1.2.5", optional = true }
+dependencies.datasets = { version = "^3.1.0", optional = true }
+dependencies.evaluate = { version = "^0.4.3", optional = true }
+dependencies.fake-useragent = { version = "^1.5.1", optional = true }
+dependencies.fastapi = { version = "^0.115.4", optional = true }
+dependencies.hydra-core = { version = "^1.3.2", optional = true }
+dependencies.ipywidgets = "^8.1.5"
+dependencies.iterative-stratification = { version = "^0.1.9", optional = true }
+dependencies.jupyterlab = "^4.3.0"
+dependencies.lightning = { version = "^2.4.0", optional = true }
+dependencies.loguru = { version = "^0.7.2", optional = true }
+dependencies.matplotlib = { version = "^3.9.2", optional = true }
+dependencies.nltk = { version = "^3.9.1", optional = true }
+dependencies.numpy = "^2.1.3"
+dependencies.omegaconf = { version = "^2.3.0", optional = true }
+dependencies.onnx = { version = "^1.17.0", optional = true }
+dependencies.onnxruntime = { version = "^1.20.0", optional = true }
 # onnx
-onnxscript = { version = "^0.1.0.dev20241104", optional = true }
-onnxruntime = { version = "^1.20.0", optional = true }
-onnx = { version = "^1.17.0", optional = true }
-skl2onnx = { version = "^1.17.0", optional = true }
-# nlp
-sentencepiece = { version = "^0.2.0", optional = true }
-nltk = { version = "^3.9.1", optional = true }
-pymorphy2 = { version = "^0.9.1", optional = true }
-pymystem3 = { version = "^0.2.0", optional = true }
-# ts
-statsmodels = "^0.14.4"
+dependencies.onnxscript = { version = "^0.1.0.dev20241104", optional = true }
+dependencies.opencv-python = { version = "^4.8.1.78", optional = true }
+dependencies.openpyxl = "^3.1.4"  # for xlsx
+dependencies.optuna = { version = "^4.0.0", optional = true }
+dependencies.pandarallel = "^1.6.5"
+dependencies.pandas = "^2.2.3"
+dependencies.pillow = { version = "^11.0.0", optional = true }
+dependencies.plotly = { version = "^5.24.1", optional = true }
+dependencies.pymorphy2 = { version = "^0.9.1", optional = true }
+dependencies.pymystem3 = { version = "^0.2.0", optional = true }
+dependencies.python-dotenv = "^1.0.1"
 # server
-python-telegram-bot = { extras = [
+dependencies.python-telegram-bot = { extras = [
   "job-queue",
 ], version = "^21.3", optional = true }
-fastapi = { version = "^0.115.4", optional = true }
-aiohttp = { version = "^3.10.10", optional = true }
-
-[tool.poetry.extras]
-vis = [ "seaborn", "matplotlib", "plotly" ]
-ml = [
-  "scikit-learn",
-  "catboost",
-  "umap-learn",
-  "optuna",
-  "iterative-stratification",
-]
-image = [
-  "scikit-image",
-  "opencv-python",
-  "pillow",
-  "albumentations", # to-do add albumenations, when its ready to numpy 2.0
-]
-torch = [ "torch", "torchvision", "torcheval", "torchaudio", "lightning" ]
-hf = [ "transformers", "datasets", "evaluate", "accelerate" ]
-parse = [ "beautifulsoup4", "fake-useragent", "requests" ]
-log = [ "wandb", "loguru", "hydra-core", "omegaconf" ]
-onnx = [ "onnxscript", "onnxruntime", "onnx", "skl2onnx" ]
-nlp = [ "sentencepiece", "nltk", "pymorphy2", "pymystem3" ]
-ts = [ "statsmodels" ]
-server = [ "python-telegram-bot", "fastapi", "aiohttp" ]
-
-[tool.poetry.group.dev.dependencies]
+dependencies.requests = { version = "^2.32.3", optional = true }
+# image
+dependencies.scikit-image = { version = "^0.24.0", optional = true }
+# ml
+dependencies.scikit-learn = { version = "^1.5.2", optional = true }
+dependencies.scipy = "^1.14.1"
+# vis
+dependencies.seaborn = { version = "^0.13.2", optional = true }
+# nlp
+dependencies.sentencepiece = { version = "^0.2.0", optional = true }
+dependencies.skl2onnx = { version = "^1.17.0", optional = true }
+# ts
+dependencies.statsmodels = "^0.14.4"
+# torch
+dependencies.torch = { version = "^2.3.0", optional = true }
+dependencies.torchaudio = { version = "^2.3.0", optional = true }
+dependencies.torcheval = { version = "^0.0.7", optional = true }
+dependencies.torchvision = { version = "^0.18.0", optional = true }
+dependencies.tqdm = "^4.66.6"
+# hf
+dependencies.transformers = { version = "^4.46.1", optional = true }
+dependencies.umap-learn = { version = "^0.5.7", optional = true }
+# log
+dependencies.wandb = { version = "^0.18.5", optional = true }
+group.dev.dependencies.black = "^24.10.0"
+# useless libs finder
+group.dev.dependencies.deptry = "^0.20.0"
+group.dev.dependencies.flake8 = "^7.1.1"
+group.dev.dependencies.flake8-bugbear = "^24.10.31"
+group.dev.dependencies.flake8-pyproject = "^1.2.3"
+group.dev.dependencies.flake8-simplify = "^0.21.0"
+# for vscode and helix
+group.dev.dependencies.isort = "^5.13.2"
+group.dev.dependencies.mypy = "^1.13.0"  # basedmypy? xd
 # do not add DVC to poetry, it is too slow
 # linting and formatting
-pre-commit = "^4.0.1"
-# for vscode and helix
-isort = "^5.13.2"
-black = "^24.10.0"
-flake8 = "^7.1.1"
-flake8-bugbear = "^24.10.31"
-flake8-simplify = "^0.21.0"
-flake8-pyproject = "^1.2.3"
-ruff = "^0.7.2"
-mypy = "^1.13.0"             # basedmypy? xd
-pylint = "^3.3.1"
-# useless libs finder
-deptry = "^0.20.0"
-
-[tool.poetry.group.test.dependencies]
-pytest = "^8.3.3"
-pytest-cov = "^6.0.0"
-pytest-asyncio = "^0.24.0"
-
-[tool.poetry.group.stubs.dependencies]
+group.dev.dependencies.pre-commit = "^4.0.1"
+group.dev.dependencies.pylint = "^3.3.1"
+group.dev.dependencies.ruff = "^0.7.2"
+group.test.dependencies.pytest = "^8.3.3"
+group.test.dependencies.pytest-asyncio = "^0.24.0"
+group.test.dependencies.pytest-cov = "^6.0.0"
+group.stubs.dependencies.pandas-stubs = "^2.2.3.241009"
+group.stubs.dependencies.types-beautifulsoup4 = "^4.12.0.20241020"
+group.stubs.dependencies.types-colorama = "^0.4.15.20240311"
+group.stubs.dependencies.types-decorator = "^5.1.8.20240310"
+group.stubs.dependencies.types-jsonschema = "^4.23.0.20240813"
+group.stubs.dependencies.types-openpyxl = "^3.1.5.20241025"
+group.stubs.dependencies.types-pillow = "^10.2.0.20240822"
+group.stubs.dependencies.types-protobuf = "^5.28.3.20241030"
+group.stubs.dependencies.types-psutil = "^6.1.0.20241102"
+group.stubs.dependencies.types-pygments = "^2.18.0.20240506"
+group.stubs.dependencies.types-pyyaml = "^6.0.12.20240917"
+group.stubs.dependencies.types-regex = "^2024.9.11.20240912"
+group.stubs.dependencies.types-requests = "^2.32.0.20241016"
+group.stubs.dependencies.types-seaborn = "^0.13.2.20240813"
+group.stubs.dependencies.types-setuptools = "^75.2.0.20241025"
+group.stubs.dependencies.types-six = "^1.16.21.20241009"
+group.stubs.dependencies.types-tabulate = "^0.9.0.20240106"
+group.stubs.dependencies.types-tqdm = "^4.66.0.20240417"
 # stubs for mypy type checking and code completions
-typing-extensions = "^4.12.2"
-pandas-stubs = "^2.2.3.241009"
-types-pillow = "^10.2.0.20240822"
-types-beautifulsoup4 = "^4.12.0.20241020"
-types-tqdm = "^4.66.0.20240417"
-types-seaborn = "^0.13.2.20240813"
-types-requests = "^2.32.0.20241016"
-types-pyyaml = "^6.0.12.20240917"
-types-regex = "^2024.9.11.20240912"
-types-openpyxl = "^3.1.5.20241025"
-types-pygments = "^2.18.0.20240506"
-types-colorama = "^0.4.15.20240311"
-types-decorator = "^5.1.8.20240310"
-types-jsonschema = "^4.23.0.20240813"
-types-protobuf = "^5.28.3.20241030"
-types-psutil = "^6.1.0.20241102"
-types-setuptools = "^75.2.0.20241025"
-types-six = "^1.16.21.20241009"
-types-tabulate = "^0.9.0.20240106"
+group.stubs.dependencies.typing-extensions = "^4.12.2"
+extras.hf = [ "accelerate", "datasets", "evaluate", "transformers" ]
+extras.image = [
+  "albumentations", # to-do add albumenations, when its ready to numpy 2.0
+  "opencv-python",
+  "pillow",
+  "scikit-image",
+]
+extras.log = [ "hydra-core", "loguru", "omegaconf", "wandb" ]
+extras.ml = [
+  "catboost",
+  "iterative-stratification",
+  "optuna",
+  "scikit-learn",
+  "umap-learn",
+]
+extras.nlp = [ "nltk", "pymorphy2", "pymystem3", "sentencepiece" ]
+extras.onnx = [ "onnx", "onnxruntime", "onnxscript", "skl2onnx" ]
+extras.parse = [ "beautifulsoup4", "fake-useragent", "requests" ]
+extras.server = [ "aiohttp", "fastapi", "python-telegram-bot" ]
+extras.torch = [ "lightning", "torch", "torchaudio", "torcheval", "torchvision" ]
+extras.ts = [ "statsmodels" ]
+extras.vis = [ "matplotlib", "plotly", "seaborn" ]
 
 # [tool.bandit]
 # exclude_dirs = ["tests"]
-
 # [tool.bandit.assert_used]
 # skips = [
 #   '*_test.py',
 #   'test_*.py',
 # ]
-
 # [tool.yamlfix]
 # comments_min_spaces_from_content = 1
 # explicit_start = false
@@ -159,16 +147,14 @@ types-tabulate = "^0.9.0.20240106"
 # section_whitelines = 1
 # whitelines = 1
 # preserve_quotes = true               # unless quote_representation bug is fixed
-
 [tool.black]
-line-length = 90
 target-version = [ "py312" ]
+line-length = 90
 # skip-magic-trailing-comma = true
 
 [tool.ruff]
 target-version = "py312"
 line-length = 90
-
 lint.select = [ "ALL" ]
 lint.ignore = [
   "ANN101",  # annotationg self in class methods, will be deprecated
@@ -190,23 +176,23 @@ known_third_party = [ "wandb" ]
 
 [tool.flake8]
 max-line-length = 90
-extend-ignore = [ "E203" ] # Whitespace before ':' for black compatability
+extend-ignore = [ "E203" ]  # Whitespace before ':' for black compatability
 
 [tool.pylint]
-py-version = "3.12"
-max-line-length = 90
 disable = [
-  "C0116", # documentation
   "C0114", # documentation
   "C0115", # documentation
+  "C0116", # documentation
 ]
+max-line-length = 90
+py-version = "3.12"
 
 [tool.mypy]
+# ignore_missing_imports = true  # ignore packages without type-checking
 python_version = "3.12"
-strict = false            # it's too strict to be useful
+strict = false  # it's too strict to be useful
 show_error_context = true
 pretty = true
-# ignore_missing_imports = true # ignore packages without type-checking
 
 [tool.autoflake]
 expand-star-imports = true
